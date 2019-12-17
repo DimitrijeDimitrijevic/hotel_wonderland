@@ -5,7 +5,7 @@ defmodule HotelWonderlandWeb.RoomController do
   alias HotelWonderland.Accounts.Room
 
   def index(conn, _params) do
-    rooms = Accounts.list_rooms()
+    rooms = Accounts.list_available_rooms(:preload)
     render(conn, "index.html", rooms: rooms)
   end
 

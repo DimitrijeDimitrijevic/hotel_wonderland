@@ -1,4 +1,4 @@
-<h1>Show User</h1>
+<h1>My Profile</h1>
 
 <ul>
 
@@ -7,10 +7,6 @@
     <%= @user.email %>
   </li>
 
-  <li>
-    <strong>Password hash:</strong>
-    <%= @user.password_hash %>
-  </li>
 
   <li>
     <strong>Full name:</strong>
@@ -23,6 +19,10 @@
   </li>
 
 </ul>
+<br>
+<%= IO.inspect(@user.reservations) %>
+<span><%= link "Edit", to: Routes.user_path(@conn, :edit) %></span> <br>
+<span><%= link "Show rooms to reserve", to: Routes.room_path(@conn, :index) %></span> <br>
+<span><%= link "Show Reservations", to: Routes.user_booking_path(@conn, :index) %></span> <br>
 
-<span><%= link "Edit", to: Routes.user_path(@conn, :edit, @user) %></span>
-<span><%= link "Back", to: Routes.user_path(@conn, :index) %></span>
+

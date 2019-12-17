@@ -3,7 +3,7 @@ defmodule HotelWonderland.Accounts.Room do
   import Ecto.Changeset
 
   schema "rooms" do
-    field :available, :boolean, default: false
+    field :available, :boolean, default: true
     field :description, :string
     field :number_of_persons, :integer
     field :price, :integer

@@ -5,9 +5,10 @@
     <tr>
       <th>Guest full name</th>
       <th>Phone</th>
-      <th>Check in</th>
-      <th>Check out</th>
+      <th>Check in time</th>
+      <th>Check out time</th>
       <th>Special requests</th>
+      <th>Actions</th>
 
 
       <th></th>
@@ -19,15 +20,17 @@
       <td><%= booking.guest_full_name %></td>
       <td><%= booking.phone %></td>
       <td><%= booking.check_in %></td>
-
+      <td><%= booking.check_out %></td>
+      <td><%= booking.special_requests %></td>
       <td>
-        <span><%= link "Show", to: Routes.booking_path(@conn, :show, booking) %></span>
-        <span><%= link "Edit", to: Routes.booking_path(@conn, :edit, booking) %></span>
-        <span><%= link "Delete", to: Routes.booking_path(@conn, :delete, booking), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <span><%= link "Show", to: Routes.user_booking_path(@conn, :show, booking) %></span>
+        <span><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, booking) %></span>
+        <span><%= link "Delete", to: Routes.user_booking_path(@conn, :delete, booking), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
 <% end %>
+
   </tbody>
 </table>
 
-<span><%= link "New Booking", to: Routes.booking_path(@conn, :new) %></span>
+<span><%= link "New Booking", to: Routes.user_booking_path(@conn, :new) %></span>

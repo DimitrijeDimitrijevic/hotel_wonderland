@@ -17,17 +17,13 @@ defmodule HotelWonderlandWeb.Router do
     plug HotelWonderlandWeb.Helpers.AuthPlug
   end
 
-  scope "/", HotelWonderlandWeb do
-    pipe_through [:browser, :auth]
-    resources "/users", UserController, only: [:show, :edit, :update], singleton: true
-  end
+ 
 
   scope "/", HotelWonderlandWeb do
     pipe_through [:browser]
 
     get "/", PageController, :index
-    resources "/rooms", RoomController
-    resources "/reservations", BookingController
+    
 
     # Sign in
     get "/sign-in", SessionController, :sign_in
@@ -39,6 +35,16 @@ defmodule HotelWonderlandWeb.Router do
 
     # Sign out
     post "/sign-out", SessionController, :sign_out
+  end
+
+  scope "/", HotelWonderlandWeb do
+    pipe_through [:browser, :auth]
+
+    resources "/profile", UserController, only: [:show, :edit, :update], singleton: true do
+      resources "/reservations", BookingController 
+    end
+
+    get "/rooms", RoomController, :index
   end
 
   # Other scopes may use custom stacks.

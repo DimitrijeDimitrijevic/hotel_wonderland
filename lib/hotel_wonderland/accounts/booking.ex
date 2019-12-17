@@ -17,7 +17,7 @@ defmodule HotelWonderland.Accounts.Booking do
   @doc false
   def changeset(booking, attrs) do
     booking
-    |> cast(attrs, [:guest_full_name, :phone])
+    |> cast(attrs, [:guest_full_name, :phone, :special_requests, :check_in, :check_out, :room_id, :user_id])
     |> validate_required([:guest_full_name, :phone])
   end
 end

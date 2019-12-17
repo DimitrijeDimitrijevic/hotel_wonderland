@@ -1,11 +1,14 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     HotelWonderland.Repo.insert!(%HotelWonderland.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+alias HotelWonderland.Accounts
+
+room_types = [
+    %{type: "Single", number_of_persons: 1, price: 30, description: "Single Room"},
+    %{type: "Comfort Single", number_of_persons: 1, price: 35, description: "Comfor Single Room"},
+    %{type: "Double", number_of_persons: 2, price: 50, description: "Double Room"},
+    %{type: "Comfort Double", number_of_persons: 2, price: 55, description: "Comfort Double Room"},
+    %{type: "Triple", number_of_persons: 3, price: 60, description: "Triple Room"},
+    %{type: "Comfort Triple", number_of_persons: 3, price: 65, description: "Comfort Triple Room"},
+]
+
+for x <- 1..3 do
+    Enum.each(room_types, fn room -> Accounts.create_room(room) end)
+end

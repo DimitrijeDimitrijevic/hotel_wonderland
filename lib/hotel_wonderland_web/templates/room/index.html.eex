@@ -22,13 +22,11 @@
       <td><%= room.price %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.room_path(@conn, :show, room) %></span>
-        <span><%= link "Edit", to: Routes.room_path(@conn, :edit, room) %></span>
-        <span><%= link "Delete", to: Routes.room_path(@conn, :delete, room), method: :delete, data: [confirm: "Are you sure?"] %></span>
+       <span><%= link "Reserve room", to: Routes.user_booking_path(@conn, :new, room_id: room.id) %></span> 
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Room", to: Routes.room_path(@conn, :new) %></span>
+

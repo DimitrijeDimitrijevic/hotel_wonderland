@@ -10,16 +10,21 @@ defmodule HotelWonderlandWeb.BookingController do
   end
 
   def new(conn, _params) do
+    IO.inspect(_params)
     changeset = Accounts.change_booking(%Booking{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"booking" => booking_params}) do
     case Accounts.create_booking(booking_params) do
-      {:ok, booking} ->
+      {:ok, booking} -> 
+        room_id = booking_params["room_id"]
+        room = Accounts.get_room!(room_id)
+        Accounts.update_room(room, %{available: false})
+
         conn
         |> put_flash(:info, "Booking created successfully.")
-        |> redirect(to: Routes.booking_path(conn, :show, booking))
+        |> redirect(to: Routes.user_booking_path(conn, :show, booking))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

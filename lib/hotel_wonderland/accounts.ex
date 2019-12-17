@@ -7,6 +7,7 @@ defmodule HotelWonderland.Accounts do
   alias HotelWonderland.Repo
 
   alias HotelWonderland.Accounts.User
+  alias HotelWonderland.Accounts.Booking
 
   @doc """
   Returns the list of users.
@@ -60,8 +61,8 @@ defmodule HotelWonderland.Accounts do
 
   """
 
-  def get_user_bookings(user_id) do
-    query = from b in Bookings, where: b.user_id == ^user_id, preload: [:user, :room]
+  def get_user_reservations(user_id) do
+    query = from b in Booking, where: b.user_id == ^user_id, preload: [:user, :room]
   end
   
   def create_user(attrs \\ %{}) do
@@ -131,6 +132,16 @@ defmodule HotelWonderland.Accounts do
   def list_rooms do
     Repo.all(Room)
   end
+
+  def list_available_rooms(:preload) do
+    query = from r in Room, where: r.available == ^true
+    Repo.all(query) |> Repo.preload(:reservations)
+  end 
+
+ # def list_available_rooms(:preload) do
+  #  query = from r in Room, where: r.available == ^true
+   # Repo.all(query) |> Repo.preload(:reservations)
+ # end
 
   @doc """
   Gets a single room.

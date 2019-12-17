@@ -28,8 +28,11 @@ defmodule HotelWonderlandWeb.UserController do
 
   def show(conn, _params) do
     user = conn.assigns.current_user
-    bookings = Accounts.get_user_bookings(user.id)  #add bookings in render
-    render(conn, "show.html", user: user, bookings: bookings)
+    
+    user = Accounts.get_user!(user.id, :preload)
+    IO.inspect(user)
+   # bookings = Accounts.get_user_reservations(user.id)  #add bookings in render
+    render(conn, "show.html", user: user)
   end
 
   def edit(conn, _params) do
