@@ -20,15 +20,12 @@ defmodule HotelWonderland.Accounts do
   """
   def list_users(), do: Repo.all(User)
   def list_users(:preload), do: Repo.all(User) |> Repo.preload(:reservations)
-  
-
-
 
   @doc """
   Gets a single user.# Admin auth
-{:basic_auth, "~> 2.2.2"},
-# Password hashing
-{:bcrypt_elixir, "~> 2.0"}
+  {:basic_auth, "~> 2.2.2"},
+  # Password hashing
+  {:bcrypt_elixir, "~> 2.0"}
 
   Raises `Ecto.NoResultsError` if the User does not exist.
 
@@ -64,7 +61,7 @@ defmodule HotelWonderland.Accounts do
   def get_user_reservations(user_id) do
     query = from b in Booking, where: b.user_id == ^user_id, preload: [:user, :room]
   end
-  
+
   def create_user(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
@@ -134,14 +131,14 @@ defmodule HotelWonderland.Accounts do
   end
 
   def list_available_rooms(:preload) do
-    query = from r in Room, where: r.available == ^true
+    query = from r in Room, where: r.available == true
     Repo.all(query) |> Repo.preload(:reservations)
-  end 
+  end
 
- # def list_available_rooms(:preload) do
+  # def list_available_rooms(:preload) do
   #  query = from r in Room, where: r.available == ^true
-   # Repo.all(query) |> Repo.preload(:reservations)
- # end
+  # Repo.all(query) |> Repo.preload(:reservations)
+  # end
 
   @doc """
   Gets a single room.
@@ -239,6 +236,11 @@ defmodule HotelWonderland.Accounts do
     Repo.all(Booking)
   end
 
+  def list_reservations_by_user_id(id) do
+    query = from b in Booking, where: b.user_id == ^id
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single booking.
 
@@ -254,6 +256,7 @@ defmodule HotelWonderland.Accounts do
 
   """
   def get_booking!(id), do: Repo.get!(Booking, id)
+  def get_booking!(id, :preload), do: Repo.get!(Booking, id) |> Repo.preload([:user, :room])
 
   @doc """
   Creates a booking.

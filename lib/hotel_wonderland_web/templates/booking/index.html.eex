@@ -21,7 +21,7 @@
       <td><%= booking.phone %></td>
       <td><%= booking.check_in %></td>
       <td><%= booking.check_out %></td>
-      <td><%= booking.special_requests %></td>
+      <td><%= booking.special_requests%></td>
       <td>
         <span><%= link "Show", to: Routes.user_booking_path(@conn, :show, booking) %></span>
         <span><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, booking) %></span>
@@ -33,4 +33,4 @@
   </tbody>
 </table>
 
-<span><%= link "New Booking", to: Routes.user_booking_path(@conn, :new) %></span>
+<!-- <span><%= link "New Booking", to: Routes.user_booking_path(@conn, :new) %></span> -->

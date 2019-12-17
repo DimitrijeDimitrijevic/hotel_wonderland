@@ -5,7 +5,8 @@ defmodule HotelWonderlandWeb.BookingController do
   alias HotelWonderland.Accounts.Booking
 
   def index(conn, _params) do
-    reservations = Accounts.list_reservations()
+    user_id = conn.assigns.current_user.id
+    reservations = Accounts.list_reservations_by_user_id(user_id)
     render(conn, "index.html", reservations: reservations)
   end
 
@@ -32,7 +33,7 @@ defmodule HotelWonderlandWeb.BookingController do
   end
 
   def show(conn, %{"id" => id}) do
-    booking = Accounts.get_booking!(id)
+    booking = Accounts.get_booking!(id, :preload)
     render(conn, "show.html", booking: booking)
   end
 
@@ -57,11 +58,13 @@ defmodule HotelWonderlandWeb.BookingController do
   end
 
   def delete(conn, %{"id" => id}) do
-    booking = Accounts.get_booking!(id)
+    booking = Accounts.get_booking!(id, :preload)
+    room = Accounts.get_booking!(id, :preload).room
+    Accounts.update_room(room, %{available: true})
     {:ok, _booking} = Accounts.delete_booking(booking)
 
     conn
     |> put_flash(:info, "Booking deleted successfully.")
-    |> redirect(to: Routes.booking_path(conn, :index))
+    |> redirect(to: Routes.user_booking_path(conn, :index))
   end
 end

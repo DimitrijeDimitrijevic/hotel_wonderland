@@ -12,7 +12,8 @@
       <section class="container" style="float: center;">
        <nav>
         <%= if signed_in?(@conn) do %>
-  <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post %>
+  <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post %> 
+   <%= link "My profile", to: Routes.user_path(@conn, :show)  %> <!-- method post je default method -->
 <% else %>
   <%= link "Sign in", to: Routes.session_path(@conn, :sign_in), method: :get %>
 
