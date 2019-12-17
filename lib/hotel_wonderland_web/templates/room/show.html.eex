@@ -1,0 +1,33 @@
+<h1>Show Room</h1>
+
+<ul>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @room.type %>
+  </li>
+
+  <li>
+    <strong>Available:</strong>
+    <%= @room.available %>
+  </li>
+
+  <li>
+    <strong>Number of persons:</strong>
+    <%= @room.number_of_persons %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @room.description %>
+  </li>
+
+  <li>
+    <strong>Price:</strong>
+    <%= @room.price %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.room_path(@conn, :edit, @room) %></span>
+<span><%= link "Back", to: Routes.room_path(@conn, :index) %></span>

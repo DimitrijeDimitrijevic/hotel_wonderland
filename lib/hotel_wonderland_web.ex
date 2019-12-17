@@ -23,6 +23,7 @@ defmodule HotelWonderlandWeb do
 
       import Plug.Conn
       import HotelWonderlandWeb.Gettext
+     
       alias HotelWonderlandWeb.Router.Helpers, as: Routes
     end
   end
@@ -39,7 +40,9 @@ defmodule HotelWonderlandWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      
       import HotelWonderlandWeb.ErrorHelpers
+      import HotelWonderlandWeb.Helpers.Auth, only: [signed_in?: 1]
       import HotelWonderlandWeb.Gettext
       alias HotelWonderlandWeb.Router.Helpers, as: Routes
     end
