@@ -8,24 +8,9 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
-    <header>
-      <section class="container" style="float: center;">
-       <nav>
-        <%= if signed_in?(@conn) do %> 
-  <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post %> 
-   <%= link "My profile", to: Routes.user_path(@conn, :show)  %> 
-   
-   <span><%= link "Show rooms to reserve", to: Routes.room_path(@conn, :index) %></span> <br><!-- method post je default method -->
-<% else %>
-  <%= link "Sign in", to: Routes.session_path(@conn, :sign_in), method: :get %>
-
-  <%= link "Sign up", to: Routes.session_path(@conn, :sign_up), method: :get %>
-
-  <%= link "Check out our free rooms", to: Routes.room_path(@conn, :index)%>
-<% end %>
-       </nav>
-      </section>
-    </header>
+  <%= link "Show users in app", to: Routes.user_path(@conn, :index) %>
+<%= link "Show current reservations", to: Routes.booking_path(@conn, :index_all_reservations) %>
+<%= link "Show all rooms in hotel", to: Routes.room_path(@conn, :index) %>
 
  <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

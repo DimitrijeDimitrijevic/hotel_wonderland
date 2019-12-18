@@ -1,0 +1,23 @@
+
+<h1> Users in App <h1>
+
+ <table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>email</th>
+            <th>phone</th>
+        </tr>
+</thead>
+<tbody>
+<%= for user <- @users do %>
+    <tr>
+        <td><%= user.full_name%></td>
+        <td><%= user.email%></td>
+        <td><%= user.phone_number%>
+    </tr>
+
+<% end %>
+
+</tbody>
+</table>

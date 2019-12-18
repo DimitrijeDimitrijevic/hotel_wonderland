@@ -1,3 +1,3 @@
 defmodule HotelWonderlandWeb.RoomView do
-  use HotelWonderlandWeb, :view
+  use HotelWonderlandWeb, :view 
 end

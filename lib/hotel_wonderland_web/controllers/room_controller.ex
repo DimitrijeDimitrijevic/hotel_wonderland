@@ -9,10 +9,13 @@ defmodule HotelWonderlandWeb.RoomController do
     render(conn, "index.html", rooms: rooms)
   end
 
+
   def new(conn, _params) do
     changeset = Accounts.change_room(%Room{})
     render(conn, "new.html", changeset: changeset)
-  end
+  end 
+
+
 
   def create(conn, %{"room" => room_params}) do
     case Accounts.create_room(room_params) do

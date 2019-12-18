@@ -133,12 +133,13 @@ defmodule HotelWonderland.Accounts do
   def list_available_rooms(:preload) do
     query = from r in Room, where: r.available == true
     Repo.all(query) |> Repo.preload(:reservations)
+  end 
+
+  def list_distinct_rooms do
+    query = from r in Room, distinct: r.type, select: [r.type, r.description]
+    Repo.all(query)
   end
 
-  # def list_available_rooms(:preload) do
-  #  query = from r in Room, where: r.available == ^true
-  # Repo.all(query) |> Repo.preload(:reservations)
-  # end
 
   @doc """
   Gets a single room.
@@ -232,10 +233,9 @@ defmodule HotelWonderland.Accounts do
       [%Booking{}, ...]
 
   """
-  def list_reservations do
-    Repo.all(Booking)
-  end
-
+  def list_reservations(), do: Repo.all(Booking) 
+  def list_reservations(:preload), do: Repo.all(Booking) |> Repo.preload([:room, :user])
+ 
   def list_reservations_by_user_id(id) do
     query = from b in Booking, where: b.user_id == ^id
     Repo.all(query)

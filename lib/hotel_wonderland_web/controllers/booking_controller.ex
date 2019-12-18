@@ -10,6 +10,11 @@ defmodule HotelWonderlandWeb.BookingController do
     render(conn, "index.html", reservations: reservations)
   end
 
+  def index_all_reservations(conn, _params) do
+    reservations = Accounts.list_reservations(:preload)
+    render(conn, "index-all-reservations.html", reservations: reservations)
+  end
+
   def new(conn, _params) do
     IO.inspect(_params)
     changeset = Accounts.change_booking(%Booking{})

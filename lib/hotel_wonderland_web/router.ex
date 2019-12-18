@@ -17,10 +17,17 @@ defmodule HotelWonderlandWeb.Router do
     plug HotelWonderlandWeb.Helpers.AuthPlug
   end
 
+  pipeline :admin do
+    plug :put_layout, {HotelWonderlandWeb.LayoutView, "admin.html"}
+    plug BasicAuth, use_config: {:hotel_wonderland, :admin_config}
+  end
+
   scope "/", HotelWonderlandWeb do
     pipe_through [:browser]
 
     get "/", PageController, :index
+
+    get "/rooms", RoomController, :index
 
     # Sign in
     get "/sign-in", SessionController, :sign_in
@@ -42,6 +49,19 @@ defmodule HotelWonderlandWeb.Router do
     resources "/profile", UserController, only: [:show, :edit, :update], singleton: true do
       resources "/reservations", BookingController
     end
+  end
+
+  scope "/admin", HotelWonderlandWeb do
+    pipe_through [:browser, :admin]
+
+    get "/", AdminController, :index
+
+    resources "/users", UserController
+    resources "/rooms", RoomController
+    resources "/reservations", BookingController
+    get "/all-reservations", BookingController, :index_all_reservations
+    
+    
   end
 
   # Other scopes may use custom stacks.

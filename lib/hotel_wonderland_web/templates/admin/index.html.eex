@@ -1,0 +1,3 @@
+<%= link "Show users in app", to: Routes.user_path(@conn, :index) %>
+<%= link "Show current reservations", to: Routes.booking_path(@conn, :index_all_reservations) %>
+<%= link "Show all rooms in hotel", to: Routes.room_path(@conn, :index) %>

@@ -4,10 +4,10 @@ defmodule HotelWonderlandWeb.UserController do
   alias HotelWonderland.Accounts
   alias HotelWonderland.Accounts.User
 
- # def index(conn, _params) do
- #  users = Accounts.list_users()
-  #  render(conn, "index.html", users: users)
- # end
+  def index(conn, _params) do
+    users = Accounts.list_users()
+    render(conn, "index.html", users: users)
+  end
 
   def new(conn, _params) do
     changeset = Accounts.change_user(%User{})
@@ -30,7 +30,7 @@ defmodule HotelWonderlandWeb.UserController do
     user = conn.assigns.current_user
     user = Accounts.get_user!(user.id, :preload)
     IO.inspect(user)
-    #booking = Accounts.get_booking!(, :preload)  #add bookings in render
+    # booking = Accounts.get_booking!(, :preload)  #add bookings in render
     render(conn, "show.html", user: user)
   end
 
