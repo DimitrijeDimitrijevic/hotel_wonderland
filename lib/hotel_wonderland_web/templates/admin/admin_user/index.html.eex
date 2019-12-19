@@ -1,0 +1,16 @@
+<div class="container">
+    <table class="table is-striped">
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone number</th>
+        </thead>
+        <%= for user <- @users do %>
+            <tr>
+                <td><%= user.full_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.phone_number %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>

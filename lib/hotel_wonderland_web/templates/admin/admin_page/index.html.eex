@@ -1,0 +1,27 @@
+<div class="columns">
+
+    <div class="column">
+    <label class="label"> Users in App </label>
+        <button class="button">
+        <%= link "Show users", to: Routes.admin_user_path(@conn, :index) %>
+        </button>  
+        <br>
+        <button class="button">
+    <%= link "Create new user", to: Routes.admin_user_path(@conn, :new) %>
+        </button>
+    </div>
+
+<div class="column">
+<label class="label"> Rooms in Hotel App </label>
+        <button class="button">
+        <%= link "Show rooms in hotel", to: Routes.admin_user_path(@conn, :index) %>
+        </button> 
+        <br>   
+        <button class="button">
+    <%= link "Create new room", to: Routes.admin_user_path(@conn, :new) %>
+        </button>
+    </div>
+</div>
+
+
+

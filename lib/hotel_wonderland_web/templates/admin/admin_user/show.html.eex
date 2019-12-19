@@ -1,0 +1,7 @@
+<h1> Created user by admin </h1>
+<br>
+    <p><%= @user.full_name %></p> 
+    <p><%= @user.email %></p>
+    <p><%= @user.phone_number %></p>
+    <br>
+

@@ -51,16 +51,14 @@ defmodule HotelWonderlandWeb.Router do
     end
   end
 
-  scope "/admin", HotelWonderlandWeb do
+  scope "/admin", HotelWonderlandWeb.Admin do
     pipe_through [:browser, :admin]
 
-    get "/", AdminController, :index
+    get "/", AdminPageController, :index
 
-    resources "/users", UserController
-    resources "/rooms", RoomController
-    resources "/reservations", BookingController
-    get "/all-reservations", BookingController, :index_all_reservations
-    get "/all-rooms", RoomController, :index_all_rooms
+    resources "/users", AdminUserController
+    resources "/rooms", AdminRoomController
+    resources "/reservations", AdminBookingController
 
 
   end

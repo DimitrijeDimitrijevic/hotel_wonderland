@@ -8,12 +8,7 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
-  <%= link "Show users in app", to: Routes.user_path(@conn, :index) %> 
-  | 
-  <%= link "Show current reservations", to: Routes.booking_path(@conn, :index_all_reservations) %>
-  | 
-  <%= link "Show all rooms in hotel", to: Routes.room_path(@conn, :index_all_rooms) %>  
-
+  <a href="/admin"> Admin Home Panel </a>
  <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
@@ -22,7 +17,7 @@
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 
-    <footer> 
+    <footer class="footer"> 
     This app is designed by Dimitrije Dimitrijevic 
     <p>Phone: 0646158060</p>
     </footer>
