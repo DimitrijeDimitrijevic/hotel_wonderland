@@ -14,7 +14,7 @@
   <%= error_tag f, :available %>
 
   <%= label f, :number_of_persons %>
-  <%= number_input f, :number_of_persons %>
+  <%= number_input f, :number_of_persons, min: 1 %>
   <%= error_tag f, :number_of_persons %>
 
   <%= label f, :description %>

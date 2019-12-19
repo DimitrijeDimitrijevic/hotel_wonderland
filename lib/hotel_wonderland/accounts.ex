@@ -18,7 +18,8 @@ defmodule HotelWonderland.Accounts do
       [%User{}, ...]
 
   """
-  def list_users(), do: Repo.all(User)
+  
+  def list_users(), do: Repo.all(User) 
   def list_users(:preload), do: Repo.all(User) |> Repo.preload(:reservations)
 
   @doc """

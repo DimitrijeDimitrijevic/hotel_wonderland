@@ -1,0 +1,36 @@
+<h1> Listing all rooms in hotel </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Available</th>
+      <th>Number of persons</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= for room <- @rooms do %>
+      <tr>
+        <td><%= room.type %></td>
+        <td><%= room.available %></td>
+        <td><%= room.number_of_persons %></td>
+        <td><%= room.description %></td>
+        <td><%= room.price %></td>
+
+        <td>
+          <%= link "Delete Room", to: Routes.room_path(@conn, :delete, room.id), method: :delete %> <br>
+          <%= link "Edit Room", to: Routes.room_path(@conn, :edit, room.id) %>
+        </td>
+
+      </tr>
+  <% end %>
+
+  <%= link "Add new room", to: Routes.room_path(@conn, :new) %>
+  </tbody>
+</table>
+
+
+

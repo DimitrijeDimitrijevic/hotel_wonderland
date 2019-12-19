@@ -9,13 +9,15 @@ defmodule HotelWonderlandWeb.RoomController do
     render(conn, "index.html", rooms: rooms)
   end
 
+  def index_all_rooms(conn, _params) do
+    rooms = Accounts.list_rooms()
+    render(conn, "index_all_rooms.html", rooms: rooms)
+  end
 
   def new(conn, _params) do
     changeset = Accounts.change_room(%Room{})
     render(conn, "new.html", changeset: changeset)
-  end 
-
-
+  end
 
   def create(conn, %{"room" => room_params}) do
     case Accounts.create_room(room_params) do
@@ -60,6 +62,6 @@ defmodule HotelWonderlandWeb.RoomController do
 
     conn
     |> put_flash(:info, "Room deleted successfully.")
-    |> redirect(to: Routes.room_path(conn, :index))
+    |> redirect(to: Routes.room_path(conn, :index_all_rooms))
   end
 end

@@ -3,13 +3,14 @@
 <table>
   <thead>
     <tr>
+      <th>Reservation ID</th>
       <th>Guest full name</th>
       <th>Phone</th>
       <th>Check in time</th>
       <th>Check out time</th>
       <th>Special requests</th>
+      <th>Booking by</th>
       <th>Actions</th>
-
 
       <th></th>
     </tr>
@@ -17,11 +18,13 @@
   <tbody>
 <%= for booking <- @reservations do %>
     <tr>
+      <td><%= booking.id %>
       <td><%= booking.guest_full_name %></td>
       <td><%= booking.phone %></td>
       <td><%= booking.check_in %></td>
       <td><%= booking.check_out %></td>
       <td><%= booking.special_requests%></td>
+      <td><%= booking.user.full_name %>
       <td>
         <span><%= link "Show", to: Routes.booking_path(@conn, :show, booking) %></span> -->
         <span><%= link "Edit", to: Routes.booking_path(@conn, :edit, booking) %></span>

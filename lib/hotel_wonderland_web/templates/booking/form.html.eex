@@ -1,4 +1,3 @@
-
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
@@ -31,9 +30,8 @@
   <%= error_tag f, :special_requests %>
 
   <%= hidden_input f, :room_id, value:  @conn.params["room_id"] %>
-   <%= hidden_input f, :user_id, value:  @conn.assigns.current_user.id %>
-
-
+  <%= hidden_input f, :user_id, value:  @conn.assigns.current_user.id %>
+  
   <div>
     <%= submit "Save" %>
   </div>
