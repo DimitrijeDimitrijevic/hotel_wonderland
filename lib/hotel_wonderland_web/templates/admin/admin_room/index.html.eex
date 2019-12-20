@@ -1,0 +1,39 @@
+<h1>Listing Rooms</h1>
+<br>
+<button class="button is-light">
+    <%= link "Back", to: Routes.admin_page_path(@conn, :index) %>
+</button>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Available</th>
+      <th>Number of persons</th>
+      <th>Description</th>
+      <th>Price</th>
+
+    
+    </tr>
+  </thead>
+  <tbody>
+<%= for room <- @rooms do %>
+    <tr>
+      <td><%= room.type %></td>
+      <td><%= room.available %></td>
+      <td><%= room.number_of_persons %></td>
+      <td><%= room.description %></td>
+      <td><%= room.price %></td>
+
+      <td>
+       <span>
+             <%= link "Make reservation", to: Routes.admin_booking_path(@conn, :new, room_id: room.id) %> <br>
+             <%= link "Delete Room", to: Routes.admin_room_path(@conn, :delete, room.id), method: :delete %> <br>
+             <%= link "Edit Room", to: Routes.admin_room_path(@conn, :edit, room.id) %> <br>
+        </span> 
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+

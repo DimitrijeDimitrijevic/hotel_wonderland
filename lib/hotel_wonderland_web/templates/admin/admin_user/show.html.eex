@@ -1,7 +1,21 @@
 <h1> Created user by admin </h1>
-<br>
-    <p><%= @user.full_name %></p> 
-    <p><%= @user.email %></p>
-    <p><%= @user.phone_number %></p>
-    <br>
+
+<button class="button is-light">
+    <%= link "Back to all users", to: Routes.admin_user_path(@conn, :index)%>
+</button>
+
+<table class="table is-striped">
+    <thead>
+        <tr>
+            <td>User full_name</td>
+            <td>User email</td>
+            <td>User phone_number</td>
+        </tr>
+    </thead>
+     <tr>
+            <td><%= @user.full_name %></td>
+            <td><%= @user.email %></td>
+            <td><%= @user.phone_number %></td>
+        </tr>   
+    </table>
 

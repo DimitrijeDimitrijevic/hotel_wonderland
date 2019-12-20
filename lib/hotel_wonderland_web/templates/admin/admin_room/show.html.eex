@@ -1,0 +1,35 @@
+
+
+<button class="button is-light">
+    <%= link "Back", to: Routes.admin_room_path(@conn, :index) %>
+</button>
+
+<h1 class="title">Added Room</h1>
+<ul>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @room.type %>
+  </li>
+
+  <li>
+    <strong>Available:</strong>
+    <%= @room.available %>
+  </li>
+
+  <li>
+    <strong>Number of persons:</strong>
+    <%= @room.number_of_persons %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @room.description %>
+  </li>
+
+  <li>
+    <strong>Price:</strong>
+    <%= @room.price %>
+  </li>
+
+</ul>

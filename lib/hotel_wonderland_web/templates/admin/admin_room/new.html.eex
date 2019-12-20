@@ -1,0 +1,37 @@
+<h1 class="title">Create new room</h1>
+
+<button class="button is-light">
+    <%= link "Back", to: Routes.admin_page_path(@conn, :index) %>
+</button>
+
+<%= form_for @changeset, Routes.admin_room_path(@conn, :create), fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= label f, :type %>
+  <%= text_input f, :type %>
+  <%= error_tag f, :type %>
+
+  <%= label f, :available %>
+  <%= checkbox f, :available %>
+  <%= error_tag f, :available %>
+
+  <%= label f, :number_of_persons %>
+  <%= number_input f, :number_of_persons, min: 1 %>
+  <%= error_tag f, :number_of_persons %>
+
+  <%= label f, :description %>
+  <%= text_input f, :description %>
+  <%= error_tag f, :description %>
+
+  <%= label f, :price %>
+  <%= number_input f, :price, min: 20 %>
+  <%= error_tag f, :price %>
+
+  <div>
+    <%= submit "Add Room" %>
+  </div>
+<% end %>

@@ -31,6 +31,3 @@
   <%= link "Add new room", to: Routes.room_path(@conn, :new) %>
   </tbody>
 </table>
-
-
-

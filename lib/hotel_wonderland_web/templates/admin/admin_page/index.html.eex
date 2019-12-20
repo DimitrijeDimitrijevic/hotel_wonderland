@@ -6,19 +6,33 @@
         <%= link "Show users", to: Routes.admin_user_path(@conn, :index) %>
         </button>  
         <br>
+        <br>  
         <button class="button">
     <%= link "Create new user", to: Routes.admin_user_path(@conn, :new) %>
         </button>
     </div>
 
 <div class="column">
-<label class="label"> Rooms in Hotel App </label>
+<label class="label"> Rooms in Hotel </label>
         <button class="button">
-        <%= link "Show rooms in hotel", to: Routes.admin_user_path(@conn, :index) %>
+        <%= link "Show rooms in hotel", to: Routes.admin_room_path(@conn, :index) %>
         </button> 
-        <br>   
+        <br>
+        <br>  
         <button class="button">
-    <%= link "Create new room", to: Routes.admin_user_path(@conn, :new) %>
+    <%= link "Create new room", to: Routes.admin_room_path(@conn, :new) %>
+        </button>
+    </div>
+
+    <div class="column">
+<label class="label"> Show Reservations </label>
+        <button class="button">
+        <%= link "Show all reservations", to: Routes.admin_booking_path(@conn, :index) %>
+        </button> 
+        <br>
+        <br>    
+        <button class="button">
+    <%= link "Make new reservation for guest", to: Routes.admin_booking_path(@conn, :new) %>
         </button>
     </div>
 </div>
