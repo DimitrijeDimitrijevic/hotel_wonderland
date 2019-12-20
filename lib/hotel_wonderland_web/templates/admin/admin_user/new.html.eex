@@ -5,6 +5,10 @@
     </div>
   <% end %>
 
+  <button class="button is-light">
+    <%= link "Back", to: Routes.admin_page_path(@conn, :index)%>
+</button>
+
 <div class="control">
 
   <%= label f, :email, class: "label" %>

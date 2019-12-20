@@ -1,0 +1,29 @@
+<h1 class="title"> Current Reservations in App </h1>
+
+    <table class="table is-striped">
+        <thead>
+                <th>Reservation ID</th>
+                <th>Full name</th>
+                <th>Phone number</th>
+                <th>Check in</th>
+                <th>Check out</th>
+                <th>Special request</th>
+                <th>Booking made by</th>
+                <th>Room</th>
+                <th>Actions</th>
+                
+        </thead>
+        <%= for reservation <- @reservations do %>
+        <tr>
+            <td><%= reservation.id %>
+            <td><%= reservation.guest_full_name %></td>
+            <td><%= reservation.phone %></td>
+            <td><%= reservation.check_in %></td>
+            <td><%= reservation.check_out %></td>
+            <td><%= reservation.special_requests %></td>
+            <td><%= reservation.user.full_name %></td>
+            <td><%= reservation.room.type %></td>
+       <td><%= link "Cancel reservation", to: Routes.admin_booking_path(@conn, :delete, reservation.id), method: :delete %></td>    
+        </tr>
+        <% end %>
+    </table>

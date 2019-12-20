@@ -1,10 +1,8 @@
-
-
 <button class="button is-light">
     <%= link "Back", to: Routes.admin_room_path(@conn, :index) %>
 </button>
 
-<h1 class="title">Added Room</h1>
+<h1 class="title">Room</h1>
 <ul>
 
   <li>

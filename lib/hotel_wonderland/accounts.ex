@@ -135,6 +135,10 @@ defmodule HotelWonderland.Accounts do
     query = from r in Room, where: r.available == true
     Repo.all(query) |> Repo.preload(:reservations)
   end 
+  def list_available_rooms() do
+    query = from r in Room, where: r.available == true
+    Repo.all(query)
+  end 
 
   def list_distinct_rooms do
     query = from r in Room, distinct: r.type, select: [r.type, r.description]
