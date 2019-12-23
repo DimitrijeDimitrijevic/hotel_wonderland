@@ -5,9 +5,16 @@ defmodule HotelWonderlandWeb.Admin.AdminRoomController do
   alias HotelWonderland.Accounts.Room
 
   def index(conn, _params) do
-    rooms_from_db = Accounts.list_rooms()
+    rooms_from_db = Accounts.list_available_rooms()
     rooms = Enum.reverse(rooms_from_db)
     render(conn, "index.html", rooms: rooms)
+  end
+
+  def index_all(conn, _params) do
+    rooms_from_db = Accounts.list_rooms()
+    rooms = Enum.reverse(rooms_from_db)
+    IO.inspect rooms
+    render(conn, "index-all.html", rooms: rooms)
   end
 
   def show_reservations(conn, _params) do

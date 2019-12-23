@@ -1,0 +1,33 @@
+<h1>Show Booking by admin</h1>
+
+<ul>
+
+  <li>
+    <strong>Guest full name:</strong>
+    <%= @booking.guest_full_name %>
+  </li>
+
+  <li>
+    <strong>Phone:</strong>
+    <%= @booking.phone %>
+  </li>
+
+   <li>
+    <strong>Check in:</strong>
+    <%= @booking.check_in %>
+  </li>
+
+   <li>
+    <strong>Check_out:</strong>
+    <%= @booking.check_out %>
+  </li>
+
+   <li>
+    <strong>Special requests:</strong>
+    <%= @booking.special_requests %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.admin_booking_path(@conn, :edit, @booking) %></span>
+<span><%= link "Back", to: Routes.admin_page_path(@conn, :index) %></span>

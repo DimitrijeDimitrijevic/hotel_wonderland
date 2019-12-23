@@ -28,9 +28,6 @@ defmodule HotelWonderlandWeb.UserController do
 
   def show(conn, _params) do
     user = conn.assigns.current_user
-    user = Accounts.get_user!(user.id, :preload)
-    IO.inspect(user)
-    # booking = Accounts.get_booking!(, :preload)  #add bookings in render
     render(conn, "show.html", user: user)
   end
 
@@ -40,14 +37,13 @@ defmodule HotelWonderlandWeb.UserController do
     render(conn, "edit.html", user: user, changeset: changeset)
   end
 
-  def update(conn, _params) do
+  def update(conn, %{"user" => user_params}) do
     user = conn.assigns.current_user
-
-    case Accounts.update_user(user, _params) do
+    case Accounts.update_user(user, user_params) do
       {:ok, user} ->
         conn
         |> put_flash(:info, "User updated successfully.")
-        |> redirect(to: Routes.user_path(conn, :show, user))
+        |> redirect(to: Routes.user_path(conn, :show))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)

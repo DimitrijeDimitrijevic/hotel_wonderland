@@ -9,9 +9,11 @@ defmodule HotelWonderlandWeb.Admin.AdminBookingController do
     render(conn, "index.html", reservations: reservations)
   end
 
-  def new(conn, _params) do
+  def new(conn, params) do
+    IO.inspect(params)
+    users = Accounts.list_users(:preload)
     changeset = Accounts.change_booking(%Booking{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, users: users)
   end
 
   def create(conn, %{"booking" => booking_params}) do
@@ -23,7 +25,7 @@ defmodule HotelWonderlandWeb.Admin.AdminBookingController do
 
         conn
         |> put_flash(:info, "Booking created successfully.")
-        |> redirect(to: Routes.user_booking_path(conn, :show, booking))
+        |> redirect(to: Routes.admin_booking_path(conn, :show, booking))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

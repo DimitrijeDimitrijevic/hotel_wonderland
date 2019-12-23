@@ -59,8 +59,7 @@ defmodule HotelWonderlandWeb.Router do
     resources "/users", AdminUserController
     resources "/rooms", AdminRoomController
     resources "/reservations", AdminBookingController
-
-
+    get "/rooms-all", AdminRoomController, :index_all
   end
 
   # Other scopes may use custom stacks.

@@ -27,7 +27,13 @@ users = [
     email: "misko@misko.com",
     password_hash: "somepassword",
     phone_number: "3333333"
-  }
+  }, 
+  %{
+    full_name: "admin",
+    email: "admin@admin.com",
+    password_hash: "somepassword",
+    phone_number: "3333333"
+  },
 ]
 
 for x <- 1..3 do

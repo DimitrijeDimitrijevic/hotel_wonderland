@@ -13,6 +13,10 @@
                 <th>Actions</th>
                 
         </thead>
+        <%= case length @reservations do %>
+        <% 0 -> %>
+        <h3> No reservations at this point </h3>
+        <% _ -> %>
         <%= for reservation <- @reservations do %>
         <tr>
             <td><%= reservation.id %>
@@ -21,9 +25,10 @@
             <td><%= reservation.check_in %></td>
             <td><%= reservation.check_out %></td>
             <td><%= reservation.special_requests %></td>
-            <td><%= reservation.user.full_name %></td>
+            <td><%= reservation.user.full_name%></td>
             <td><%= reservation.room.type %></td>
        <td><%= link "Cancel reservation", to: Routes.admin_booking_path(@conn, :delete, reservation.id), method: :delete %></td>    
         </tr>
+        <% end %>
         <% end %>
     </table>

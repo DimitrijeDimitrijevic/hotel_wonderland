@@ -1,0 +1,48 @@
+<h1> New reservation for user </h1>
+<% admin_id = get_admin_id()%>
+<% room_id = @conn.params["room_id"]%>
+<h2><%= IO.inspect(admin_id) %></h2>
+
+<%= form_for @changeset, Routes.admin_booking_path(@conn, :create), fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  
+
+  <% today_date = Date.utc_today %>
+  <% min_date_from_reservation = Date.to_iso8601(today_date) %>
+  <% min_date_to_reservation = today_date |> Date.add(1) |> Date.to_iso8601()%>
+
+  
+
+  <%= label f, :guest_full_name %>
+  <%= text_input f, :guest_full_name %>
+  <%= error_tag f, :guest_full_name %>
+
+  <%= label f, :check_in%>
+  <%= date_input f, :check_in, min: "#{min_date_from_reservation}", value: "#{min_date_from_reservation}" %>
+  <%= error_tag f, :check_in%>
+
+  <%= label f, :check_out %>
+  <%= date_input f, :check_out, min: "#{min_date_to_reservation}", value: "#{min_date_to_reservation}" %>
+  <%= error_tag f, :check_out %>
+
+  <%= label f, :phone %>
+  <%= text_input f, :phone %>
+  <%= error_tag f, :phone %>
+
+  <%= label f, :special_requests %>
+  <%= text_input f, :special_requests %>
+  <%= error_tag f, :special_requests %>
+
+  <%= hidden_input f, :room_id, value:  room_id %>
+  <%= hidden_input f, :user_id, value: admin_id %>
+  <div>
+    <%= submit "Save" %>
+  </div>
+<% end %>
+
+

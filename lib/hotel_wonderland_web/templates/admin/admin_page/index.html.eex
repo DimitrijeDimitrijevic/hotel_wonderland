@@ -15,10 +15,15 @@
 <div class="column">
 <label class="label"> Rooms in Hotel </label>
         <button class="button">
-        <%= link "Show rooms in hotel", to: Routes.admin_room_path(@conn, :index) %>
+        <%= link "Show available rooms in hotel", to: Routes.admin_room_path(@conn, :index) %>
         </button> 
         <br>
+        <br>
+        <button class="button">
+        <%= link "Show all rooms in hotel", to: Routes.admin_room_path(@conn, :index_all) %>
+        </button> 
         <br>  
+        <br>
         <button class="button">
     <%= link "Create new room", to: Routes.admin_room_path(@conn, :new) %>
         </button>
@@ -31,9 +36,7 @@
         </button> 
         <br>
         <br>    
-        <button class="button">
-    <%= link "Make new reservation for guest", to: Routes.admin_booking_path(@conn, :new) %>
-        </button>
+   
     </div>
 </div>
 

@@ -26,7 +26,6 @@
 
       <td>
        <span>
-             <%= link "Make Reservation for user", to: Routes.admin_booking_path(@conn, :new, room_id: room.id)%>
              <%= link "Delete Room", to: Routes.admin_room_path(@conn, :delete, room.id), method: :delete %> <br>
              <%= link "Edit Room", to: Routes.admin_room_path(@conn, :edit, room.id) %> <br>
         </span> 
