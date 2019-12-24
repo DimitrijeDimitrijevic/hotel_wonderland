@@ -18,9 +18,6 @@
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 
-    <footer class="footer"> 
-    This app is designed by Dimitrije Dimitrijevic 
-    <p>Phone: 0646158060</p>
-    </footer>
+  
   </body>
 </html>

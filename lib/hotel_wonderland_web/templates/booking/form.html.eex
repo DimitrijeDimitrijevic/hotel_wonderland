@@ -26,7 +26,7 @@
   <%= error_tag f, :phone %>
 
   <%= label f, :special_requests %>
-  <%= text_input f, :special_requests %>
+  <%= textarea f, :special_requests %>
   <%= error_tag f, :special_requests %>
 
   <%= hidden_input f, :room_id, value:  @conn.params["room_id"] %>

@@ -1,22 +1,27 @@
-<h1>Listing Rooms</h1>
+<div class="container">
+<h1 class="title">Listing Rooms</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Available</th>
-      <th>Number of persons</th>
-      <th>Description</th>
-      <th>Price</th>
+  <table class="table is-stripped is-fullwidth">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Available</th>
+        <th>Number of persons</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Action</th>
 
     
-    </tr>
-  </thead>
+      </tr>
+    </thead>
   <tbody>
 <%= for room <- @rooms do %>
+
     <tr>
       <td><%= room.type %></td>
-      <td><%= room.available %></td>
+      <td><%= if room.available do "Yes" 
+            else 
+              "No" end %></td>
       <td><%= room.number_of_persons %></td>
       <td><%= room.description %></td>
       <td><%= room.price %></td>
@@ -26,7 +31,8 @@
       </td>
     </tr>
 <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 

@@ -9,35 +9,46 @@
   </head>
   <body>
     <header>
-      <section class="container" style="float: center;">
-       <nav>
-        <%= if signed_in?(@conn) do %> 
-  <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post %> 
-   <%= link "My profile", to: Routes.user_path(@conn, :show)  %> 
-   
-   <span><%= link "Show rooms to reserve", to: Routes.room_path(@conn, :index) %></span> <br><!-- method post je default method -->
-<% else %>
-  <%= link "Sign in", to: Routes.session_path(@conn, :sign_in), method: :get %>
+      <section class="container" style="float: center; padding: 14px;">
+       <nav class="navbar" role="navigation" aria-label="main navigation"> 
+          <div class="navbar brand">
+          <a class="navbar item" href="/"><figure class="image is-64x64"><img src="/images/hw-icon.png" style="margin-right: 15px;" class="is-rounded" alt="Hotel Wonderland"></figure></a>
+          <div class="navbar-end"> 
+            <div class="navbar-items">
+              <div class="buttons" style="margin-left: 24px">
+                <%= if signed_in?(@conn) do %> 
+  
 
-  <%= link "Sign up", to: Routes.session_path(@conn, :sign_up), method: :get %>
+                  <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post, class: "button is-primary" %> 
 
-  <%= link "Check out our free rooms", to: Routes.room_path(@conn, :index)%>
-<% end %>
+                  <%= link "My profile", to: Routes.user_path(@conn, :show), class: "button is-primary" %> 
+
+                  <span><%= link "Show rooms to reserve", to: Routes.room_path(@conn, :index), class: "button is-warning" %></span> <br>
+
+                <% else %>
+
+                <%= link "Sign in", to: Routes.session_path(@conn, :sign_in), method: :get, class: "button is-primary" %>
+
+                <%= link "Sign up", to: Routes.session_path(@conn, :sign_up), method: :get, class: "button is-default"%>
+
+                <%= link "Check out our free rooms", to: Routes.room_path(@conn, :index), class: "button is-danger"%>
+
+                  </div>
+                    </div>
+                      </div>
+                <% end %>
+          </div>
        </nav>
       </section>
     </header>
 
  <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+
       <%= render @view_module, @view_template, assigns %>
-        
+      
+
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-
-    <footer class="container">  
-    This app is designed by Dimitrije Dimitrijevic 
-    <p>Phone: 0646158060</p>
-    </footer>
   </body>
 </html>

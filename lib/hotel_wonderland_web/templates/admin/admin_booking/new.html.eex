@@ -38,7 +38,7 @@
   <%= text_input f, :special_requests %>
   <%= error_tag f, :special_requests %>
 
-  <%= hidden_input f, :room_id, value:  room_id %>
+  <%= hidden_input f, :room_id, value: room_id %>
   <%= hidden_input f, :user_id, value: admin_id %>
   <div>
     <%= submit "Save" %>

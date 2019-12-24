@@ -17,6 +17,8 @@ defmodule HotelWonderland.Accounts.User do
     user
     |> cast(attrs, [:email, :password_hash, :full_name, :phone_number])
     |> validate_required([:email, :password_hash])
+    |> validate_format(:email, ~r/\@/)
+    |> validate_length(:full_name, min: 5)
     |> unique_constraint(:email)
     |> update_change(:password_hash, &Bcrypt.hash_pwd_salt/1)
   end
