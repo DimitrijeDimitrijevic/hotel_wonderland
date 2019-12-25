@@ -1,6 +1,7 @@
-<h1>Listing Reservations</h1>
+<section class="section">
+<h1 class="title">Listing Reservations</h1>
 
-<table>
+<table class="table is-stripped">
   <thead>
     <tr>
       <th>Guest full name</th>
@@ -15,7 +16,11 @@
     </tr>
   </thead>
   <tbody>
-<%= for booking <- @reservations do %>
+  <%= case length @reservations do %>
+        <% 0 -> %>
+        <h3 class= "title has-text-danger"> You have not made reservation yet, make one <%= link "List rooms", to: Routes.room_path(@conn, :index), class: "button is-link is-light" %> </h3>
+        <% _ -> %>
+    <%= for booking <- @reservations do %>
     <tr>
       <td><%= booking.guest_full_name %></td>
       <td><%= booking.phone %></td>
@@ -28,6 +33,7 @@
         <span><%= link "Delete", to: Routes.user_booking_path(@conn, :delete, booking), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
+    <% end %>
 <% end %>
 
   </tbody>

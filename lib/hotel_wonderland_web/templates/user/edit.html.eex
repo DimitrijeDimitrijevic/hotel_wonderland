@@ -1,21 +1,35 @@
+<section class="section">
+  
+  <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+      <h1 class="title"> Edit your profile</h1>
+       <div class="box">
+       <h2 class="subtitle"> Here you can edit your name and phone number</h2>
 <%= form_for @changeset, Routes.user_path(@conn, :update), fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
+<div class= field>
+  <%= label f, :full_name , class: "label"%>
+  <%= text_input f, :full_name, class: "input is-rounded" %>
+  <%= error_tag f, :full_name%>
+</div>
 
-  <%= label f, :full_name %>
-  <%= text_input f, :full_name %>
-  <%= error_tag f, :full_name %>
-
-  <%= label f, :phone_number %>
-  <%= text_input f, :phone_number %>
+<div class="field">
+  <%= label f, :phone_number, class: "label" %>
+  <%= text_input f, :phone_number, class: "input is-rounded" %>
   <%= error_tag f, :phone_number %>
+</div>
 
-  <div>
-    <%= submit "Save" %>
+
+  <div class="field">
+    <%= submit "Save", class: "button is-info is-light" %>
   </div>
 <% end %>
+    </div>
+  </div>
+</section>
 
 

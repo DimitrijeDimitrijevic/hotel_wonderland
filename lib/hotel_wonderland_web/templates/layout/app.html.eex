@@ -46,9 +46,17 @@
 
 
       <%= render @view_module, @view_template, assigns %>
-      
+   
 
     </main>
+    <footer class="footer">
+  <div class="content has-text-centered">
+    <p class="has-text-black">
+      &copy Dimitrije Dimitrijevi<a href="/admin" class="has-text-black">c</a>
+    </p>
+  </div>
+</footer>
+      
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

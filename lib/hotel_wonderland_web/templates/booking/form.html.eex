@@ -1,3 +1,8 @@
+<section class="section"> 
+<div class="cointainer has-text-centered">
+<h1 class="title"> Make new reservation </h1>
+<div class="column is-4 is-offset-4">
+<div class="box">
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
@@ -8,31 +13,40 @@
   <% today_date = Date.utc_today %>
   <% min_date_from_reservation = Date.to_iso8601(today_date) %>
   <% min_date_to_reservation = today_date |> Date.add(1) |> Date.to_iso8601()%>
-
-  <%= label f, :guest_full_name %>
-  <%= text_input f, :guest_full_name %>
+<div class="field">
+  <%= label f, :guest_full_name, class: "label has-text-black"%>
+  <%= text_input f, :guest_full_name, placeholder: "John Smith", class: "input is-rounded" %>
   <%= error_tag f, :guest_full_name %>
+</div>
 
-  <%= label f, :check_in%>
-  <%= date_input f, :check_in, min: "#{min_date_from_reservation}", value: "#{min_date_from_reservation}" %>
+<div class="field">
+  <%= label f, :check_in, class: "label has-text-black"%>
+  <%= date_input f, :check_in, min: "#{min_date_from_reservation}", value: "#{min_date_from_reservation}", class: "input is-rounded"  %>
   <%= error_tag f, :check_in%>
+</div>
 
-  <%= label f, :check_out %>
-  <%= date_input f, :check_out, min: "#{min_date_to_reservation}", value: "#{min_date_to_reservation}" %>
+<div class="field">
+  <%= label f, :check_out, class: "label has-text-black" %>
+  <%= date_input f, :check_out, min: "#{min_date_to_reservation}", value: "#{min_date_to_reservation}", class: "input is-rounded" %>
   <%= error_tag f, :check_out %>
-
-  <%= label f, :phone %>
-  <%= text_input f, :phone %>
+</div>
+  <%= label f, :phone, class: "label has-text-black"%>
+  <%= text_input f, :phone, placeholder: "+(country code) your number", class: "input is-rounded" %>
   <%= error_tag f, :phone %>
-
-  <%= label f, :special_requests %>
-  <%= textarea f, :special_requests %>
+<div class="field">
+  <%= label f, :special_requests, class: "label has-text-black"%>
+  <%= textarea f, :special_requests, placeholder: "Please provide if you have some special request, e.g Smoking Room", class: "textarea is-small" %>
   <%= error_tag f, :special_requests %>
-
+</div>
   <%= hidden_input f, :room_id, value:  @conn.params["room_id"] %>
   <%= hidden_input f, :user_id, value:  @conn.assigns.current_user.id %>
   
   <div>
-    <%= submit "Save" %>
+    <%= submit "Book", class: "button is-success" %>
   </div>
+
 <% end %>
+</div>
+</div>
+  </div>
+</section>

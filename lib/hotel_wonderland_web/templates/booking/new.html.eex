@@ -1,7 +1,7 @@
-<h1>New Booking</h1>
+
 
 <%= render "form.html", Map.put(assigns, :action, Routes.user_booking_path(@conn, :create)) %>
 
-<span><%= link "Back", to: Routes.user_booking_path(@conn, :index) %></span>
+<span class="button is-link is-light"><%= link "Back", to: Routes.user_booking_path(@conn, :index) %></span>
 <br>
 
