@@ -33,7 +33,7 @@ defmodule HotelWonderlandWeb.SessionController do
           conn
           |> put_session(:current_user_id, user.id)
           |> put_flash(:info, "Sign in, successful!")
-          |> redirect(to: Routes.user_path(conn, :show))
+          |> redirect(to: Routes.page_path(conn, :index))
   
         {:error, _} ->
           conn

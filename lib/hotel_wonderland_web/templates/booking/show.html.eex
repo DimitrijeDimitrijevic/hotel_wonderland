@@ -1,33 +1,29 @@
-<h1>Show Booking</h1>
+<section class="section">
+<div class="container has-text-centered">
+<h1 class="title">Show reservation</h1>
 
-<ul>
+<table class="table is-stripped">
+  <thead>
+    <tr>
+      <td>Reservation no.</td>
+      <td>Guest full name</td>
+      <td>Phone</td>
+      <td>Check-in</td>
+      <td>Check-out</td>
+      <td>Special requests</td>
+    </tr>
+  </thead>
+  <tr>
+    <td><%= @booking.id%></td>
+    <td><%= @booking.guest_full_name %> </td> 
+    <td><%= @booking.phone %> </td> 
+    <td><%= @booking.check_in %> </td> 
+    <td><%= @booking.check_out %></td> 
+    <td><%= @booking.special_requests %> </td> 
+    <td><span><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, @booking), class: "has-text-blue"%></span></td>
+  </tr>
 
-  <li>
-    <strong>Guest full name:</strong>
-    <%= @booking.guest_full_name %>
-  </li>
-
-  <li>
-    <strong>Phone:</strong>
-    <%= @booking.phone %>
-  </li>
-
-   <li>
-    <strong>Check in:</strong>
-    <%= @booking.check_in %>
-  </li>
-
-   <li>
-    <strong>Check_out:</strong>
-    <%= @booking.check_out %>
-  </li>
-
-   <li>
-    <strong>Special requests:</strong>
-    <%= @booking.special_requests %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, @booking) %></span>
-<span><%= link "Back", to: Routes.user_booking_path(@conn, :index) %></span>
+</table>
+<span><%= link "Back", to: Routes.user_booking_path(@conn, :index), class: "button is-success" %></span>
+</div>
+</section>

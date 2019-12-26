@@ -4,6 +4,7 @@
 <table class="table is-stripped">
   <thead>
     <tr>
+      <th>Reservation id</th>
       <th>Guest full name</th>
       <th>Phone</th>
       <th>Check in time</th>
@@ -22,15 +23,16 @@
         <% _ -> %>
     <%= for booking <- @reservations do %>
     <tr>
+      <td><%= booking.id%></td>
       <td><%= booking.guest_full_name %></td>
       <td><%= booking.phone %></td>
       <td><%= booking.check_in %></td>
       <td><%= booking.check_out %></td>
       <td><%= booking.special_requests%></td>
       <td>
-        <span><%= link "Show", to: Routes.user_booking_path(@conn, :show, booking) %></span>
-        <span><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, booking) %></span>
-        <span><%= link "Delete", to: Routes.user_booking_path(@conn, :delete, booking), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <span><%= link "Show", to: Routes.user_booking_path(@conn, :show, booking), class: "has-text-success" %></span> |
+        <span><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, booking), class: "has-text-link" %></span>  |
+        <span><%= link "Delete", to: Routes.user_booking_path(@conn, :delete, booking), class: "has-text-danger",  method: :delete, data: [confirm: "Are you sure?"] %></span> 
       </td>
     </tr>
     <% end %>

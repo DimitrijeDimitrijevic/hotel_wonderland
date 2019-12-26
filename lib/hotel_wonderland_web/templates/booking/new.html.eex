@@ -1,4 +1,4 @@
-
+<h1 class="title has-text-centered">Make new reservation</h1>
 
 <%= render "form.html", Map.put(assigns, :action, Routes.user_booking_path(@conn, :create)) %>
 

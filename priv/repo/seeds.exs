@@ -11,7 +11,7 @@ room_types = [
 
 users = [
   %{
-    full_name: "Dice",
+    full_name: "Dimitrije",
     email: "dice@dice.com",
     password_hash: "somepassword",
     phone_number: "111111"

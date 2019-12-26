@@ -55,7 +55,7 @@ defmodule HotelWonderlandWeb.BookingController do
       {:ok, booking} ->
         conn
         |> put_flash(:info, "Booking updated successfully.")
-        |> redirect(to: Routes.booking_path(conn, :show, booking))
+        |> redirect(to: Routes.user_booking_path(conn, :show, booking))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", booking: booking, changeset: changeset)
