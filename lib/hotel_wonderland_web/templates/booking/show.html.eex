@@ -20,10 +20,9 @@
     <td><%= @booking.check_in %> </td> 
     <td><%= @booking.check_out %></td> 
     <td><%= @booking.special_requests %> </td> 
-    <td><span><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, @booking), class: "has-text-blue"%></span></td>
+    <td><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, @booking, room_id: @booking.room.id), class: "has-text-blue"%></td>
   </tr>
-
 </table>
-<span><%= link "Back", to: Routes.user_booking_path(@conn, :index), class: "button is-success" %></span>
+  <%= link "Back", to: Routes.user_booking_path(@conn, :index), class: "button is-success" %>
 </div>
 </section>

@@ -22,6 +22,7 @@ defmodule HotelWonderlandWeb.BookingController do
   end
 
   def create(conn, %{"booking" => booking_params}) do
+    IO.inspect booking_params
     case Accounts.create_booking(booking_params) do
       {:ok, booking} -> 
         room_id = booking_params["room_id"]
@@ -42,14 +43,14 @@ defmodule HotelWonderlandWeb.BookingController do
     render(conn, "show.html", booking: booking)
   end
 
-  def edit(conn, %{"id" => id}) do
-    booking = Accounts.get_booking!(id)
+  def edit(conn, %{"id" => id, "room_id" => room_id}) do
+    booking = Accounts.get_booking!(id, :preload)
     changeset = Accounts.change_booking(booking)
     render(conn, "edit.html", booking: booking, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "booking" => booking_params}) do
-    booking = Accounts.get_booking!(id)
+    booking = Accounts.get_booking!(id, :preload)
 
     case Accounts.update_booking(booking, booking_params) do
       {:ok, booking} ->
@@ -63,8 +64,10 @@ defmodule HotelWonderlandWeb.BookingController do
   end
 
   def delete(conn, %{"id" => id}) do
+  
     booking = Accounts.get_booking!(id, :preload)
     room = Accounts.get_booking!(id, :preload).room
+    IO.inspect(room)
     Accounts.update_room(room, %{available: true})
     {:ok, _booking} = Accounts.delete_booking(booking)
 

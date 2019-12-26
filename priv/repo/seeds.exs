@@ -14,25 +14,25 @@ users = [
     full_name: "Dimitrije",
     email: "dice@dice.com",
     password_hash: "somepassword",
-    phone_number: "111111"
+    phone_number: "+381123456789"
   },
   %{
     full_name: "Milan",
     email: "milan@milan.com",
     password_hash: "somepassword",
-    phone_number: "222222"
+    phone_number: "+381123456789"
   },
   %{
     full_name: "Misko",
     email: "misko@misko.com",
     password_hash: "somepassword",
-    phone_number: "3333333"
+    phone_number: "+381123456789"
   }, 
   %{
     full_name: "admin",
     email: "admin@admin.com",
     password_hash: "somepassword",
-    phone_number: "3333333"
+    phone_number: "+381123456789"
   },
 ]
 

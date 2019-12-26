@@ -31,7 +31,7 @@
   <%= error_tag f, :check_out %>
 </div>
   <%= label f, :phone, class: "label has-text-black"%>
-  <%= text_input f, :phone, placeholder: "+(country code) your number", class: "input is-rounded" %>
+  <%= text_input f, :phone, placeholder: "+3816060000", class: "input is-rounded", pattern: "\+[0-9]{1,15}" %>
   <%= error_tag f, :phone %>
 <div class="field">
   <%= label f, :special_requests, class: "label has-text-black"%>

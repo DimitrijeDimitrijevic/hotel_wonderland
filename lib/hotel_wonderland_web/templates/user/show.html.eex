@@ -10,17 +10,17 @@
 <ul>
   <li>
     <strong>Full name:</strong>
-    <input type="text" value="<%= @user.full_name %>" class="input is-rounded has-text-dark has-text-centered" disabled>
+    <input type="text" value="<%= @user.full_name %>" class="input is-rounded has-text-dark has-text-centered" readonly>
   </li>
 
   <li>
     <strong>Email:</strong>
-    <input type="text" value=" <%= @user.email %>"class="input is-rounded has-text-dark has-text-centered"  disabled>
+    <input type="text" value=" <%= @user.email %>"class="input is-rounded has-text-dark has-text-centered"  readonly>
   </li>
 
   <li>
     <strong>Phone number:</strong>
-    <input type="text" value=" <%= @user.phone_number %>" class="input is-rounded has-text-dark has-text-centered"  disabled>
+    <input type="text" value=" <%= @user.phone_number %>" class="input is-rounded has-text-dark has-text-centered"  readonly>
   </li>
 
 </ul>

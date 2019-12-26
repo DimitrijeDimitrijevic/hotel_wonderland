@@ -26,7 +26,7 @@
 
     <div class="field">
       <%= label f, :phone_number, class: "label"%>
-      <%= telephone_input f, :phone_number, placeholder: "+(country code) your number", class: "input"%>
+      <%= telephone_input f, :phone_number, placeholder: "+38160123456678", pattern: "\+[0-9]{1,15}",  class: "input"%>
       <%= error_tag f, :phone_number %>
     </div>
 

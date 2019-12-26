@@ -31,8 +31,8 @@
       <td><%= booking.special_requests%></td>
       <td>
         <span><%= link "Show", to: Routes.user_booking_path(@conn, :show, booking), class: "has-text-success" %></span> |
-        <span><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, booking), class: "has-text-link" %></span>  |
-        <span><%= link "Delete", to: Routes.user_booking_path(@conn, :delete, booking), class: "has-text-danger",  method: :delete, data: [confirm: "Are you sure?"] %></span> 
+        <span><%= link "Edit", to: Routes.user_booking_path(@conn, :edit, booking, room_id: booking.room_id), class: "has-text-link" %></span>  |
+        <span><%= link "Delete", to: Routes.user_booking_path(@conn, :delete, booking), class: "has-text-danger",  method: :delete, data: [confirm: "Da li ste sigurni da želite da obrišete rezervaciju?"] %></span> 
       </td>
     </tr>
     <% end %>

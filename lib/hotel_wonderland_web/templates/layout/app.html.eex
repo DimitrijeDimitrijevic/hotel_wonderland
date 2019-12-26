@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>HotelWonderland · Phoenix Framework</title>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-  </head>
-  <body>
-    <header>
-      <section class="container" style="float: center; padding: 14px;">
-       <nav class="navbar" role="navigation" aria-label="main navigation"> 
-          <div class="navbar brand">
-          <a class="navbar item" href="/"><figure class="image is-64x64"><img src="/images/hw-icon.png" style="margin-right: 15px;" class="is-rounded" alt="Hotel Wonderland"></figure></a>
-          <div class="navbar-end"> 
-            <div class="navbar-items">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HotelWonderland · Phoenix Framework</title>
+  <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
+</head>
+
+<body>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+              <img src="/images/hw-icon.png" class="is-rounded" alt="Hotel Wonderland">
+          </a>
+
+          <a class="navbar-burger burger">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+      <!-- dodati javascript  na dno-->
+
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item">
               <div class="buttons" style="margin-left: 24px">
-                <%= if signed_in?(@conn) do %> 
+                <%= if signed_in?(@conn) do %>
 
-                  <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post, class: "button is-primary" %> 
+                <%= link "My profile", to: Routes.user_path(@conn, :show), class: "button is-primary is-rounded" %>
 
-                  <%= link "My profile", to: Routes.user_path(@conn, :show), class: "button is-primary" %> 
+                <%= link "Show rooms to reserve", to: Routes.room_path(@conn, :index), class: "button is-warning is-rounded" %>
 
-                  <span><%= link "Show rooms to reserve", to: Routes.room_path(@conn, :index), class: "button is-warning" %></span> <br>
+                <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post, class: "button is-danger is-rounded" %>
 
                 <% else %>
 
-                <%= link "Sign in", to: Routes.session_path(@conn, :sign_in), method: :get, class: "button is-primary" %>
+                <%= link "Check out our free rooms", to: Routes.room_path(@conn, :index), class: "button is-warning is-rounded"%>
 
-                <%= link "Sign up", to: Routes.session_path(@conn, :sign_up), method: :get, class: "button is-default"%>
+                <%= link "Sign in", to: Routes.session_path(@conn, :sign_in), method: :get, class: "button is-success is-rounded" %>
 
-                <%= link "Check out our free rooms", to: Routes.room_path(@conn, :index), class: "button is-danger"%>
-
-                  </div>
-                    </div>
-                      </div>
-                <% end %>
+                <%= link "Sign up", to: Routes.session_path(@conn, :sign_up), method: :get, class: "button is-link is-rounded"%>
+                
+              </div>
+            </div>
           </div>
-       </nav>
-      </section>
-    </header>
+            <% end %>
+        </div>
+        </div>
+      </nav>
 
- <main role="main" class="container">
+  <main role="main" class="container">
 
+    <%= render @view_module, @view_template, assigns %>
 
-      <%= render @view_module, @view_template, assigns %>
-   
+  </main>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p class="has-text-black">
+        &copy; Hotel Wonderland by Dimitrije Dimitrijevi<a href="/admin" class="has-text-black">c</a>
+      </p>
+    </div>
+  </footer>
+  
+  <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+</body>
 
-    </main>
-    <footer class="footer">
-  <div class="content has-text-centered">
-    <p class="has-text-black">
-      &copy; Hotel Wonderland by Dimitrije Dimitrijevi<a href="/admin" class="has-text-black">c</a>
-    </p>
-  </div>
-</footer>
-      
-    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-  </body>
 </html>
