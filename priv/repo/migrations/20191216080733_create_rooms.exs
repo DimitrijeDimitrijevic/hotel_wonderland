@@ -8,6 +8,7 @@ defmodule HotelWonderland.Repo.Migrations.CreateRooms do
       add :number_of_persons, :integer
       add :description, :string
       add :price, :integer
+      add :benefits, :string
 
       timestamps()
     end

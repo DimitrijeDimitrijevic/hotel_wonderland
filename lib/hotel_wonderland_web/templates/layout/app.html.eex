@@ -10,49 +10,48 @@
 </head>
 
 <body>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
 
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-              <img src="/images/hw-icon.png" class="is-rounded" alt="Hotel Wonderland">
-          </a>
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/images/hw-icon.png" class="is-rounded" alt="Hotel Wonderland">
+      </a>
 
-          <a class="navbar-burger burger">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
+      <a role="button" class="navbar-burger burger" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
 
-      <!-- dodati javascript  na dno-->
 
-        <div class="navbar-menu">
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons" style="margin-left: 24px">
-                <%= if signed_in?(@conn) do %>
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons" style="margin-left: 24px">
+            <%= if signed_in?(@conn) do %>
+      
+            <%= link "My profile", to: Routes.user_path(@conn, :show), class: "button is-primary is-rounded" %>
+            
+            <%= link "Show rooms to reserve", to: Routes.room_path(@conn, :index), class: "button is-warning is-rounded" %>
 
-                <%= link "My profile", to: Routes.user_path(@conn, :show), class: "button is-primary is-rounded" %>
+            <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post, class: "button is-danger is-rounded" %>
 
-                <%= link "Show rooms to reserve", to: Routes.room_path(@conn, :index), class: "button is-warning is-rounded" %>
+            <% else %>
 
-                <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post, class: "button is-danger is-rounded" %>
+            <%= link "Check out our free rooms", to: Routes.room_path(@conn, :index), class: "button is-warning is-rounded"%>
 
-                <% else %>
+            <%= link "Sign in", to: Routes.session_path(@conn, :sign_in), method: :get, class: "button is-success is-rounded" %>
 
-                <%= link "Check out our free rooms", to: Routes.room_path(@conn, :index), class: "button is-warning is-rounded"%>
+            <%= link "Sign up", to: Routes.session_path(@conn, :sign_up), method: :get, class: "button is-link is-rounded"%>
 
-                <%= link "Sign in", to: Routes.session_path(@conn, :sign_in), method: :get, class: "button is-success is-rounded" %>
-
-                <%= link "Sign up", to: Routes.session_path(@conn, :sign_up), method: :get, class: "button is-link is-rounded"%>
-                
-              </div>
-            </div>
           </div>
-            <% end %>
         </div>
-        </div>
-      </nav>
+      </div>
+      <% end %>
+    </div>
+    </div>
+  </nav>
 
   <main role="main" class="container">
 
@@ -66,7 +65,17 @@
       </p>
     </div>
   </footer>
-  
+  <script>
+    (function () {
+      var burger = document.querySelector('.burger');
+      var nav = document.querySelector('#' + burger.dataset.target);
+
+      burger.addEventListener('click', function () {
+        burger.classList.toggle('is-active');
+        nav.classList.toggle('is-active');
+      });
+    })();
+  </script>
   <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 </body>
 

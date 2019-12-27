@@ -75,4 +75,6 @@ defmodule HotelWonderlandWeb.BookingController do
     |> put_flash(:info, "Booking deleted successfully.")
     |> redirect(to: Routes.user_booking_path(conn, :index))
   end
+
+  
 end

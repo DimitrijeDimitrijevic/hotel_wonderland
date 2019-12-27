@@ -44,7 +44,7 @@ defmodule HotelWonderlandWeb.Router do
   scope "/", HotelWonderlandWeb do
     pipe_through [:browser, :auth]
 
-    get "/rooms", RoomController, :index
+    resources "/rooms", RoomController, only: [:show, :index]
 
     resources "/profile", UserController, only: [:show, :edit, :update], singleton: true do
       resources "/reservations", BookingController

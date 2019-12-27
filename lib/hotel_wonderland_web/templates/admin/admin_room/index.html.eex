@@ -3,7 +3,7 @@
 <button class="button is-light">
     <%= link "Back", to: Routes.admin_page_path(@conn, :index) %>
 </button>
-<table>
+<table class="table is-striped">
   <thead>
     <tr>
       <th>Type</th>
@@ -11,6 +11,7 @@
       <th>Number of persons</th>
       <th>Description</th>
       <th>Price</th>
+      <th>Actions</th>
 
     
     </tr>
@@ -26,9 +27,9 @@
 
       <td>
        <span>
-             <%= link "Make Reservation for user", to: Routes.admin_booking_path(@conn, :new, room_id: room.id)%>
-             <%= link "Delete Room", to: Routes.admin_room_path(@conn, :delete, room.id), method: :delete %> <br>
-             <%= link "Edit Room", to: Routes.admin_room_path(@conn, :edit, room.id) %> <br>
+             <%= link "Make Reservation for user", to: Routes.admin_booking_path(@conn, :new, room_id: room.id), class: "has-text-link"%> | 
+             <%= link "Delete Room", to: Routes.admin_room_path(@conn, :delete, room.id), method: :delete, class: "has-text-danger" %> | 
+             <%= link "Edit Room", to: Routes.admin_room_path(@conn, :edit, room.id), class: "has-text-warning"%></p>
         </span> 
       </td>
     </tr>

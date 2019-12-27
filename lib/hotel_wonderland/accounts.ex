@@ -268,6 +268,7 @@ defmodule HotelWonderland.Accounts do
   """
   def get_booking!(id), do: Repo.get!(Booking, id)
   def get_booking!(id, :preload), do: Repo.get!(Booking, id) |> Repo.preload([:user, :room])
+  
 
   @doc """
   Creates a booking.

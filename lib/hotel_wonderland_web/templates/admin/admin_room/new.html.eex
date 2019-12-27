@@ -13,23 +13,27 @@
 
   <%= label f, :type %>
   <%= text_input f, :type %>
-  <%= error_tag f, :type %>
+  <%= error_tag f, :type %> <br>
 
   <%= label f, :available %>
   <%= checkbox f, :available %>
-  <%= error_tag f, :available %>
+  <%= error_tag f, :available %><br>
 
   <%= label f, :number_of_persons %>
   <%= number_input f, :number_of_persons, min: 1 %>
-  <%= error_tag f, :number_of_persons %>
+  <%= error_tag f, :number_of_persons %><br>
 
   <%= label f, :description %>
   <%= text_input f, :description %>
-  <%= error_tag f, :description %>
+  <%= error_tag f, :description %><br>
+
+  <%= label f, :benefits %>
+  <%= text_input f, :benefits %>
+  <%= error_tag f, :benefits %><br>
 
   <%= label f, :price %>
   <%= number_input f, :price, min: 20 %>
-  <%= error_tag f, :price %>
+  <%= error_tag f, :price %><br>
 
   <div>
     <%= submit "Add Room" %>

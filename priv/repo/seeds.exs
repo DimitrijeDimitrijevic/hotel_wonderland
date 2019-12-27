@@ -1,12 +1,12 @@
 alias HotelWonderland.Accounts
 
 room_types = [
-  %{type: "Single", number_of_persons: 1, price: 30, description: "Single Room"},
-  %{type: "Comfort Single", number_of_persons: 1, price: 35, description: "Comfor Single Room"},
-  %{type: "Double", number_of_persons: 2, price: 50, description: "Double Room"},
-  %{type: "Comfort Double", number_of_persons: 2, price: 55, description: "Comfort Double Room"},
-  %{type: "Triple", number_of_persons: 3, price: 60, description: "Triple Room"},
-  %{type: "Comfort Triple", number_of_persons: 3, price: 65, description: "Comfort Triple Room"}
+  %{type: "Single", number_of_persons: 1, price: 30, description: "Single Room", benefits: "Here you can add benefits"},
+  %{type: "Comfort Single", number_of_persons: 1, price: 35, description: "Comfor Single Room", benefits: "Here you can add benefits"},
+  %{type: "Double", number_of_persons: 2, price: 50, description: "Double Room", benefits: "Here you can add benefits"},
+  %{type: "Comfort Double", number_of_persons: 2, price: 55, description: "Comfort Double Room", benefits: "Here you can add benefits"},
+  %{type: "Triple", number_of_persons: 3, price: 60, description: "Triple Room", benefits: "Here you can add benefits"},
+  %{type: "Comfort Triple", number_of_persons: 3, price: 65, description: "Comfort Triple Room", benefits: "Here you can add benefits"}
 ]
 
 users = [

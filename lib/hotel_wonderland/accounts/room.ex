@@ -8,6 +8,7 @@ defmodule HotelWonderland.Accounts.Room do
     field :number_of_persons, :integer
     field :price, :integer
     field :type, :string
+    field :benefits, :string
     has_one :reservations, HotelWonderland.Accounts.Booking
     
 
@@ -17,7 +18,7 @@ defmodule HotelWonderland.Accounts.Room do
   @doc false
   def changeset(room, attrs) do
     room
-    |> cast(attrs, [:type, :available, :number_of_persons, :description, :price])
-    |> validate_required([:type, :available, :number_of_persons, :description, :price])
+    |> cast(attrs, [:type, :available, :number_of_persons, :description, :price, :benefits])
+    |> validate_required([:type, :available, :number_of_persons, :description, :price, :benefits])
   end
 end

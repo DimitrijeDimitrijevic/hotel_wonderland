@@ -27,8 +27,12 @@
       <td><%= room.price %></td>
 
       <td>
+       
        <span><%= link "Reserve room", to: Routes.user_booking_path(@conn, :new, room_id: room.id), class: "button is-rounded is-warning"%></span> 
+       <span><%= link "Show Room", to: Routes.room_path(@conn, :show, room), class: "button is-rounded is-link"%></span> 
+       
       </td>
+       
     </tr>
 <% end %>
     </tbody>
