@@ -10,7 +10,9 @@
                 <th>Special request</th>
                 <th>Booking made by</th>
                 <th>Room</th>
+                <th>Number of persons</th>
                 <th>Actions</th>
+                
                 
         </thead>
         <%= case length @reservations do %>
@@ -27,6 +29,7 @@
             <td><%= reservation.special_requests %></td>
             <td><%= reservation.user.full_name%></td>
             <td><%= reservation.room.type %></td>
+            <td><%= reservation.room.number_of_persons %></td>
        <td><%= link "Cancel reservation", to: Routes.admin_booking_path(@conn, :delete, reservation.id), method: :delete %></td>    
         </tr>
         <% end %>

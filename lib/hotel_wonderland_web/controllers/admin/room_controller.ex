@@ -31,7 +31,7 @@ defmodule HotelWonderlandWeb.Admin.AdminRoomController do
     case Accounts.create_room(room_params) do
       {:ok, room} ->
         conn
-        |> put_flash(:info, "Room created successfully.")
+        |> put_flash(:info, "Room created successfully by admin.")
         |> redirect(to: Routes.admin_room_path(conn, :show, room))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -56,7 +56,7 @@ defmodule HotelWonderlandWeb.Admin.AdminRoomController do
     case Accounts.update_room(room, room_params) do
       {:ok, room} ->
         conn
-        |> put_flash(:info, "Room updated successfully.")
+        |> put_flash(:info, "Room updated successfully by admin.")
         |> redirect(to: Routes.admin_room_path(conn, :show, room))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -69,7 +69,7 @@ defmodule HotelWonderlandWeb.Admin.AdminRoomController do
     {:ok, _room} = Accounts.delete_room(room)
 
     conn
-    |> put_flash(:info, "Room deleted successfully.")
+    |> put_flash(:info, "Room deleted successfully by admin.")
     |> redirect(to: Routes.admin_room_path(conn, :index))
   end
 end

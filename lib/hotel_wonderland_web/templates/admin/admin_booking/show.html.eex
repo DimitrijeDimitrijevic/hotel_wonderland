@@ -27,6 +27,16 @@
     <%= @booking.special_requests %>
   </li>
 
+  <li>
+    <strong>Room type</strong>
+    <%= @booking.room.type%>
+  </li>
+
+  <li>
+    <strong>Number of person</strong>
+    <%= @booking.room.number_of_persons%>
+  </li>
+
 </ul>
 
 <span><%= link "Edit", to: Routes.admin_booking_path(@conn, :edit, @booking) %></span>

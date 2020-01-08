@@ -7,12 +7,14 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone number</th>
+            <th>Actions</th>
         </thead>
         <%= for user <- @users do %>
             <tr>
                 <td><%= user.full_name %></td>
                 <td><%= user.email %></td>
                 <td><%= user.phone_number %></td>
+                <td><%= link "Show/Edit user", to: Routes.admin_user_path(@conn, :edit, user.id) %>
             </tr>
         <% end %>
     </table>

@@ -1,9 +1,9 @@
-<h1> Created user by admin </h1>
+
 
 <button class="button is-light">
     <%= link "Back to all users", to: Routes.admin_user_path(@conn, :index)%>
 </button>
-
+<h1 class="title"> Created/Edited user by admin </h1>
 <table class="table is-striped">
     <thead>
         <tr>

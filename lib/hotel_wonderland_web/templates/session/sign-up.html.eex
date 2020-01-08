@@ -14,25 +14,25 @@
 <h2 class="title">Sign up to our reservation app</h2>
     <div class="field">
       <%= label f, :name_and_surname, class: "label"%>
-      <%= text_input f, :full_name, placeholder: "Please enter your full name", class: "input"%>
+      <%= text_input f, :full_name, placeholder: "Please enter your full name", class: "input", title: "Please enter name and surname" %>
       <%= error_tag f, :full_name%>
     </div>
 
     <div class="field">
       <%= label f, :email, class: "label" %>
-      <%= email_input f, :email, placeholder: "email@example.com", class: "input"%>
+      <%= email_input f, :email, placeholder: "email@example.com", class: "input", title: "Please enter email"%>
       <%= error_tag f, :email %>
     </div>
 
     <div class="field">
       <%= label f, :phone_number, class: "label"%>
-      <%= telephone_input f, :phone_number, placeholder: "+38160123456678", pattern: "\+[0-9]{1,15}",  class: "input"%>
+      <%= telephone_input f, :phone_number, placeholder: "+38160123456678", pattern: "\+[0-9]{1,15}",  class: "input", title: "Please enter phone number"%>
       <%= error_tag f, :phone_number %>
     </div>
 
     <div class="field">
       <%= label f, :password, class: "label" %>
-      <%= password_input f, :password_hash, placeholder: "Enter your password", class: "input" %>
+      <%= password_input f, :password_hash, placeholder: "Enter your password", class: "input", title: "Please enter password" %>
       <%= error_tag f, :password_hash %>
     </div>
 

@@ -20,34 +20,34 @@
   <div class="field">
     <%= label f, :guest_full_name, class: "label" %>
     <div class="control">
-    <%= text_input f, :guest_full_name, class: "input" %>
+    <%= text_input f, :guest_full_name, placeholder: "e.g John Smith" ,class: "input", title: "Please fill the name of the guest" %>
     </div>
     <%= error_tag f, :guest_full_name %>
   </div>
   <div class="field">
     <%= label f, :check_in , class: "label"%>
     <div class="control">
-    <%= date_input f, :check_in, min: "#{min_date_from_reservation}", value: "#{min_date_from_reservation}" %>
+    <%= date_input f, :check_in, min: "#{min_date_from_reservation}", value: "#{min_date_from_reservation}", title: "Select check in Date" %>
     <%= error_tag f, :check_in%>
     </div>
   </div>
   <%= label f, :check_out, class: "label" %> 
   <div class="control">
-  <%= date_input f, :check_out, min: "#{min_date_to_reservation}", value: "#{min_date_to_reservation}" %>
+  <%= date_input f, :check_out, min: "#{min_date_to_reservation}", value: "#{min_date_to_reservation}", title: "Select check out Date" %>
   </div>
   <%= error_tag f, :check_out %>
 
 <div class="field">
   <%= label f, :phone, class: "label" %>
   <div class="control">
-  <%= text_input f, :phone, class: "input" %>
+  <%= text_input f, :phone, class: "input", placeholder: "e.g +381601234567", title: "Enter phone number as example" %>
   </div>
   <%= error_tag f, :phone %>
 </div>
 <div class="field">
   <%= label f, :special_requests, class: "label" %>
   <div class="control">
-  <%= textarea f, :special_requests, class: "textarea" %>
+  <%= textarea f, :special_requests, class: "textarea", placeholder: "e.g Non Smoking Room", title: "Provide special request" %>
   </div>
   <%= error_tag f, :special_requests %>
   <br>

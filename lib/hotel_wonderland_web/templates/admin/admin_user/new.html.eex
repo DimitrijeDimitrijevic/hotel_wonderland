@@ -9,27 +9,35 @@
     <%= link "Back", to: Routes.admin_page_path(@conn, :index)%>
 </button>
 
-<div class="control">
-
-  <%= label f, :email, class: "label" %>
-  <%= text_input f, :email, class: "input" %>
+<div class="container center-form">
+<div class="field">
+  <%= label f, :email, class: "label"%>
+  <div class="control">
+  <%= text_input f, :email, class: "input", title: "Enter user password", placeholder: "e.g John Smith" %>
+  </div>
   <%= error_tag f, :email %>
+  </div>
 
+<div class="field">
+  <%= label f, :full_name, class: "label" %>
+  <div class="control">
+  <%= text_input f, :full_name, class: "input", placeholder: "e.g john.smith@example.com" %>
+  </div>
+  <%= error_tag f, :full_name %>
+  </div>
 
   <%= label f, :password, class: "label" %>
-  <%= password_input f, :password_hash, class: "input" %>
+  <%= password_input f, :password_hash, class: "input", title: "Enter user password" %>
   <%= error_tag f, :password_hash %>
 
-  <%= label f, :full_name, class: "label" %>
-  <%= text_input f, :full_name, class: "input" %>
-  <%= error_tag f, :full_name %>
 
   <%= label f, :phone_number, class: "label" %>
-  <%= text_input f, :phone_number, class: "input" %>
+  <%= text_input f, :phone_number, class: "input",  pattern: "\+[0-9]{1,15}", placeholder: "e.g +38160123456789", title: "User phone number" %>
   <%= error_tag f, :phone_number %>
+  
+  <div>
+  <br>
+    <%= submit "Save", class: "button is-primary is-fullwidth" %>
+  </div>
 </div>
-    <br>
- <div>
-  <%= submit "Save", class: "button is-primary" %>
- </div>
 <% end %>

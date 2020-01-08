@@ -18,7 +18,7 @@ defmodule HotelWonderlandWeb.Admin.AdminUserController do
       case Accounts.create_user(user_params) do
         {:ok, user} ->
           conn
-          |> put_flash(:info, "User created successfully.")
+          |> put_flash(:info, "Admin created user successfully.")
           |> redirect(to: Routes.admin_user_path(conn, :show, user))
   
         {:error, %Ecto.Changeset{} = changeset} ->
@@ -32,20 +32,21 @@ defmodule HotelWonderlandWeb.Admin.AdminUserController do
       render(conn, "show.html", user: user)
     end
   
-    def edit(conn, _params) do
-      user = conn.assigns.current_user
+    def edit(conn, %{"id" => id}) do
+      user = Accounts.get_user(id)
       changeset = Accounts.change_user(user)
       render(conn, "edit.html", user: user, changeset: changeset)
     end
   
-    def update(conn, _params) do
-      user = conn.assigns.current_user
+    def update(conn, %{"id" => id, "user" => user_params}) do
+      IO.inspect(user_params)
+      user = Accounts.get_user(id)
   
-      case Accounts.update_user(user, _params) do
+      case Accounts.update_user(user, user_params) do
         {:ok, user} ->
           conn
-          |> put_flash(:info, "User updated successfully.")
-          |> redirect(to: Routes.user_path(conn, :show, user))
+          |> put_flash(:info, "Admin updated user successfully.")
+          |> redirect(to: Routes.admin_user_path(conn, :show, user))
   
         {:error, %Ecto.Changeset{} = changeset} ->
           render(conn, "edit.html", user: user, changeset: changeset)

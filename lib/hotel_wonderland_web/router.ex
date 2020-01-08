@@ -27,7 +27,7 @@ defmodule HotelWonderlandWeb.Router do
 
     get "/", PageController, :index
 
-    get "/rooms", RoomController, :index
+    resources "/rooms", RoomController, only: [:index, :show]
 
     # Sign in
     get "/sign-in", SessionController, :sign_in

@@ -3,11 +3,14 @@
     <div class="column">
 
     <label class="label has-text-white"> Users in App </label>
-       
-    <%= link "Show users", to: Routes.admin_user_path(@conn, :index) %>
-    <br>
+  
+    <%= link to: Routes.admin_user_path(@conn, :index) do %>
+    <i class="fas fa-address-book"></i> Show All users
+    <% end %>
         
-    <%= link "Create new user", to: Routes.admin_user_path(@conn, :new) %>
+    <%= link to: Routes.admin_user_path(@conn, :new) do  %>
+    <i class="fas fa-user-plus"></i>Create new user 
+    <% end %>
         
     </div>
 
@@ -19,8 +22,10 @@
             <br>    
         <%= link "Show all rooms in hotel", to: Routes.admin_room_path(@conn, :index_all) %>
             <br>
-        <%= link "Create new room", to: Routes.admin_room_path(@conn, :new) %>
-        
+            
+        <%= link  to: Routes.admin_room_path(@conn, :new) do %>
+        <i class="fas fa-door-closed"></i> Add room
+        <% end %>
     </div>
 
     
