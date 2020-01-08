@@ -27,7 +27,7 @@
 
       <td>
        <span>
-             <%= link "Make Reservation for user", to: Routes.admin_booking_path(@conn, :new, room_id: room.id), class: "has-text-link"%> | 
+             <%= link "Make Reservation for guest", to: Routes.admin_booking_path(@conn, :new, room_id: room.id), class: "has-text-link"%> | 
              <%= link "Delete Room", to: Routes.admin_room_path(@conn, :delete, room.id), method: :delete, class: "has-text-danger" %> | 
              <%= link "Edit Room", to: Routes.admin_room_path(@conn, :edit, room.id), class: "has-text-warning"%></p>
         </span> 

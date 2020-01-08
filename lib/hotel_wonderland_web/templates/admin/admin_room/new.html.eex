@@ -10,32 +10,52 @@
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
-
-  <%= label f, :type %>
-  <%= text_input f, :type %>
+<div class="container center-form">
+<div class="field">
+  <%= label f, :type, class: "label" %>
+  <div class="control">
+  <%= text_input f, :type, class: "input" %>
+  </div>
   <%= error_tag f, :type %> <br>
+</div>
 
-  <%= label f, :available %>
+<div class="field">
+  <%= label f, :available, class: "label" %>
   <%= checkbox f, :available %>
   <%= error_tag f, :available %><br>
-
-  <%= label f, :number_of_persons %>
-  <%= number_input f, :number_of_persons, min: 1 %>
+</div>
+<div class="field">
+  <%= label f, :number_of_persons, class: "label" %>
+  <div class="control">
+  <%= number_input f, :number_of_persons, min: 1, class: "input" %>
+  </div>
   <%= error_tag f, :number_of_persons %><br>
 
-  <%= label f, :description %>
-  <%= text_input f, :description %>
+</div>
+<div class="field">
+  <%= label f, :description, class: "label" %>
+  <div class="control">
+  <%= text_input f, :description, class: "input"  %>
+  </div>
   <%= error_tag f, :description %><br>
-
-  <%= label f, :benefits %>
-  <%= text_input f, :benefits %>
+</div>
+<div class="field">
+  <%= label f, :benefits, class: "label" %>
+  <div class="control">
+  <%= text_input f, :benefits, class: "input"%>
+  </div>
   <%= error_tag f, :benefits %><br>
+</div>
 
-  <%= label f, :price %>
-  <%= number_input f, :price, min: 20 %>
+<div class="field">
+  <%= label f, :price, class: "label" %>
+  <div class="control">
+  <%= number_input f, :price, min: 20, class: "input"%>
+  </div>
   <%= error_tag f, :price %><br>
-
+</div>
   <div>
-    <%= submit "Add Room" %>
+    <%= submit "Add Room", class: "button is-primary is-fullwidth" %>
+  </div>
   </div>
 <% end %>

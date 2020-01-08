@@ -7,9 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HotelWonderland · Phoenix Framework</title>
   <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
+  <script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js"></script>
 </head>
 
 <body>
+
   <nav class="navbar" role="navigation" aria-label="main navigation">
 
     <div class="navbar-brand">
@@ -27,25 +29,40 @@
 
     <div class="navbar-menu" id="navMenu">
       <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons" style="margin-left: 24px">
-            <%= if signed_in?(@conn) do %>
-      
-            <%= link "My profile", to: Routes.user_path(@conn, :show), class: "button is-primary is-rounded" %>
-            
-            <%= link "Show rooms to reserve", to: Routes.room_path(@conn, :index), class: "button is-warning is-rounded" %>
 
-            <%= link "Sign out", to: Routes.session_path(@conn, :sign_out), method: :post, class: "button is-danger is-rounded" %>
+            <%= if signed_in?(@conn) do %>
+            
+            <%= link to: Routes.user_path(@conn, :show), class: "navbar-item" do %> 
+            My profile <i class="fas fa-user-alt"></i>
+            <% end %>
+            
+            <%= link to: Routes.room_path(@conn, :index), class: "navbar-item" do %>
+              Show rooms to reserve <i class="fas fa-bed"></i>
+              <% end %>
+
+
+            <%= link  to: Routes.session_path(@conn, :sign_out), method: :post, class: "navbar-item" do %>
+            Sign out <i class="fas fa-sign-out-alt"></i>
+            <% end %>
 
             <% else %>
 
-            <%= link "Check out our free rooms", to: Routes.room_path(@conn, :index), class: "button is-warning is-rounded"%>
+            <%= link to: Routes.room_path(@conn, :index), class: "navbar-item" do %>
+            Check free rooms <i class="fas fa-door-open"></i>
+            <% end %>
+        
 
-            <%= link "Sign in", to: Routes.session_path(@conn, :sign_in), method: :get, class: "button is-success is-rounded" %>
-
-            <%= link "Sign up", to: Routes.session_path(@conn, :sign_up), method: :get, class: "button is-link is-rounded"%>
-
-          </div>
+            <%= link to: Routes.session_path(@conn, :sign_in), method: :get, class: "navbar-item" do %>
+             Sign in <i class="fas fa-sign-in-alt"></i>
+            <% end %>
+            
+            
+            
+            <%= link to: Routes.session_path(@conn, :sign_up), method: :get, class: "navbar-item" do %>
+            Sign up <i class="fas fa-user-plus"></i>
+            <% end %>
+           
+            
         </div>
       </div>
       <% end %>

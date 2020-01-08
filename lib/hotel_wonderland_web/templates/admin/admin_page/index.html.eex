@@ -1,41 +1,34 @@
-<div class="columns gradient-panel">
+<div class="columns">
 
     <div class="column">
+
     <label class="label has-text-white"> Users in App </label>
-        <button class="button">
-        <%= link "Show users", to: Routes.admin_user_path(@conn, :index) %>
-        </button>  
-        <br>
-        <br>  
-        <button class="button">
+       
+    <%= link "Show users", to: Routes.admin_user_path(@conn, :index) %>
+    <br>
+        
     <%= link "Create new user", to: Routes.admin_user_path(@conn, :new) %>
-        </button>
+        
     </div>
 
 <div class="column">
+
 <label class="label has-text-white"> Rooms in Hotel </label>
-        <button class="button">
+
         <%= link "Show available rooms in hotel", to: Routes.admin_room_path(@conn, :index) %>
-        </button> 
-        <br>
-        <br>
-        <button class="button">
+            <br>    
         <%= link "Show all rooms in hotel", to: Routes.admin_room_path(@conn, :index_all) %>
-        </button> 
-        <br>  
-        <br>
-        <button class="button">
-    <%= link "Create new room", to: Routes.admin_room_path(@conn, :new) %>
-        </button>
+            <br>
+        <%= link "Create new room", to: Routes.admin_room_path(@conn, :new) %>
+        
     </div>
 
+    
     <div class="column">
 <label class="label has-text-white"> Show Reservations </label>
-        <button class="button">
+
         <%= link "Show all reservations", to: Routes.admin_booking_path(@conn, :index) %>
-        </button> 
-        <br>
-        <br>    
+       
    
     </div>
 </div>

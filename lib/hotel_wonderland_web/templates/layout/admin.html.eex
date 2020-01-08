@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>HotelWonderland</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js"></script>
   </head>
   <body>
   <a href="/admin"> Admin Home Panel</a> <hr>

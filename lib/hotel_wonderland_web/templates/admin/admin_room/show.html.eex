@@ -18,10 +18,7 @@
   </div>
     <footer class="card-footer">
       <p class="card-footer-item">
-        <%= link "Reserve room", to: Routes.user_booking_path(@conn, :new, room_id: @room.id), class: "button is-square is-warning"%>
-      </p>
-      <p class="card-footer-item">
-        <%= link "Back", to: Routes.room_path(@conn, :index), class: "button is-square is-link" %></p>
+        <%= link "Back", to: Routes.admin_room_path(@conn, :index), class: "button is-square is-link" %></p>
     </footer>
 </div>
 </div>
