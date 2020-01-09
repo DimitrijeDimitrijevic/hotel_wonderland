@@ -1,5 +1,4 @@
-<% admin_id = get_admin_id()%>
-<% room_id = @conn.params["room_id"]%>
+<% [admin_id] = Accounts.get_admin_id()%>
 
 <%= form_for @changeset, Routes.admin_booking_path(@conn, :create), fn f -> %>
   <%= if @changeset.action do %>
@@ -52,8 +51,9 @@
   <%= error_tag f, :special_requests %>
   <br>
 
-  <%= hidden_input f, :room_id, value: room_id %>
+  <%= hidden_input f, :room_id, value: @room_id %>
   <%= hidden_input f, :user_id, value: admin_id %>
+
   <div>
     <%= submit "Save", class: "button is-primary is-fullwidth" %>
   </div>

@@ -38,7 +38,7 @@
   <%= textarea f, :special_requests, placeholder: "Please provide if you have some special request, e.g Smoking Room", class: "textarea is-small" %>
   <%= error_tag f, :special_requests %>
 </div>
-  <%= hidden_input f, :room_id, value:  @conn.params["room_id"] %>
+  <%= hidden_input f, :room_id, value:  @room_id %>
   <%= hidden_input f, :user_id, value:  @conn.assigns.current_user.id %>
   
   <div>

@@ -15,10 +15,10 @@ defmodule HotelWonderlandWeb.BookingController do
     render(conn, "index-all-reservations.html", reservations: reservations)
   end
 
-  def new(conn, _params) do
-    IO.inspect(_params)
+  def new(conn, %{"room_id" => room_id}) do
+    IO.inspect(room_id)
     changeset = Accounts.change_booking(%Booking{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, room_id: room_id)
   end
 
   def create(conn, %{"booking" => booking_params}) do
@@ -34,7 +34,10 @@ defmodule HotelWonderlandWeb.BookingController do
         |> redirect(to: Routes.user_booking_path(conn, :show, booking))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        IO.inspect booking_params
+        IO.inspect(conn.assigns.current_user.id)
+        room_id = booking_params["room_id"]
+        render(conn, "new.html", changeset: changeset, room_id: room_id)
     end
   end
 
@@ -46,7 +49,7 @@ defmodule HotelWonderlandWeb.BookingController do
   def edit(conn, %{"id" => id, "room_id" => room_id}) do
     booking = Accounts.get_booking!(id, :preload)
     changeset = Accounts.change_booking(booking)
-    render(conn, "edit.html", booking: booking, changeset: changeset)
+    render(conn, "edit.html", booking: booking, changeset: changeset, room_id: room_id)
   end
 
   def update(conn, %{"id" => id, "booking" => booking_params}) do

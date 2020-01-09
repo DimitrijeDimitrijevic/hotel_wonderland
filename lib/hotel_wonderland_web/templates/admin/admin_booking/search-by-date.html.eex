@@ -1,11 +1,6 @@
-<h1 class="title"> All Reservations in App </h1>
-    <h3 class="subtitle"> Search by check in date </h3>
-    <%= form_for @conn, Routes.admin_booking_path(@conn, :search), [method: :get],  fn f -> %>
-        <% today_date = Date.utc_today() |> Date.to_iso8601%>
-        <%= date_input f, :date, value: today_date %>
-        <%= submit "Search"%>
-    <% end %>
-
+<h1 class="title"> Reservations </h1>
+    <h2 class="subtitle">Selected date:  <%= @date %> </h2>
+        <%= link "Back to all reservations", to: Routes.admin_booking_path(@conn, :index)%>
     <table class="table is-striped">
         <thead>
                 <th>Reservation ID</th>
@@ -23,7 +18,7 @@
         </thead>
         <%= case length @reservations do %>
         <% 0 -> %>
-        <h3 class="title has-text-danger"> No reservations at this point </h3>
+        <h3 class="title has-text-danger"> No reservations for selected date </h3>
         <% _ -> %>
         <%= for reservation <- @reservations do %>
         <tr>

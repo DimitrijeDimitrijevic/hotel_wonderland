@@ -3,8 +3,5 @@ defmodule HotelWonderlandWeb.Admin.AdminBookingView do
 
   alias HotelWonderland.Accounts
 
-  def get_admin_id do
-    admin = Accounts.get_admin_id()
-    admin_id = List.first(admin)
-  end
+  def get_admin_id(), do: Accounts.get_admin_id()
 end

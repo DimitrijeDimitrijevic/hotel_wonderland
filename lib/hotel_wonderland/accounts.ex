@@ -48,8 +48,8 @@ defmodule HotelWonderland.Accounts do
   
 
   def get_admin_id do 
-  query = from u in User, where: u.full_name == "admin", select: u.id
-  Repo.all(query)
+    query = from u in User, where: u.full_name == "admin", select: u.id
+    Repo.all(query)
   end
 
   @doc """
@@ -246,7 +246,11 @@ defmodule HotelWonderland.Accounts do
   """
   def list_reservations(), do: Repo.all(Booking) 
   def list_reservations(:preload), do: Repo.all(Booking) |> Repo.preload([:room, :user])
- 
+  def get_reservations_by_date(date, :preload) do
+    query = from b in Booking, where: b.check_in == ^date
+    Repo.all(query) |> Repo.preload([:room, :user])
+  end
+
   def list_reservations_by_user_id(id) do
     query = from b in Booking, where: b.user_id == ^id
     Repo.all(query)

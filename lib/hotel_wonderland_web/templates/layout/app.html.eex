@@ -47,6 +47,10 @@
 
             <% else %>
 
+            <%= link to: Routes.admin_page_path(@conn, :index), class: "navbar-item" do %>
+            Sign in as admin <i class="fas fa-user-shield"></i>
+            <%end%>
+
             <%= link to: Routes.room_path(@conn, :index), class: "navbar-item" do %>
             Check free rooms <i class="fas fa-door-open"></i>
             <% end %>
