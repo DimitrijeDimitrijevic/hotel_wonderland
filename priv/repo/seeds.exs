@@ -1,5 +1,8 @@
 alias HotelWonderland.Accounts
+alias HotelWonderland.News
 
+
+#inserting room_types for testing
 room_types = [
   %{type: "Single", number_of_persons: 1, price: 30, description: "Single Room", benefits: "Here you can add benefits"},
   %{type: "Comfort Single", number_of_persons: 1, price: 35, description: "Comfor Single Room", benefits: "Here you can add benefits"},
@@ -9,6 +12,7 @@ room_types = [
   %{type: "Comfort Triple", number_of_persons: 3, price: 65, description: "Comfort Triple Room", benefits: "Here you can add benefits"}
 ]
 
+#inserting users for testing
 users = [
   %{
     full_name: "Dimitrije",
@@ -35,6 +39,16 @@ users = [
     phone_number: "+381123456789"
   },
 ]
+
+#inserting news for testing
+
+news = [
+  %{headline: "First Headlline", content: "First content"},
+  %{headline: "Second Headline", content: "Second content"},
+  %{headline: "Some headline", content: "some content"}
+]
+
+Enum.each(news, fn news -> {:ok, _} = News.create_post(news) end)
 
 for x <- 1..3 do
   Enum.each(room_types, fn room -> Accounts.create_room(room) end)

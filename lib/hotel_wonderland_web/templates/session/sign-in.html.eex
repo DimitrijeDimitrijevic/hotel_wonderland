@@ -1,28 +1,28 @@
-<section class="section">
   <div class="container has-text-centered">
   <div class="column is-4 is-offset-4">
     <h1 class="title">Sign in to our reservation app</h1>
     <h2 class="subtitle"> You have to sing in first or <a href="<%= Routes.session_path(@conn, :sign_up) %>"> Sign up first </a></h2>
+    <h3 class="notice-for-fields"> Please fill all fields </h3>
     <div class="box">
     <p class="has-text-danger" role="alert"><%= get_flash(@conn, :error) %></p>
     <p class="has-text-danger" role="alert"><%= get_flash(@conn, :info) %></p>
   <%= form_for @conn, Routes.session_path(@conn, :create_session),[as: :session],fn f -> %>
-<div class="field">
+<div class="field"> 
   <%= label f, :email, class: "label" %>
-  <%= email_input f, :email, placeholder: "email@example.com", class: "input" %>
+  <%= email_input f, :email, placeholder: "email@example.com", class: "input is-rounded is-danger", title: "Enter your email"%>
   <%= error_tag f, :email %>
 </div>
 
 <div class="field">
-  <%= label f, :password, class: "label" %>
-  <%= password_input f, :password_hash, placeholder: "Enter your password", class: "input"%>
+  <%= label f, :password, class: "label"%>
+  <%= password_input f, :password_hash, placeholder: "Enter your password", class: "input is-rounded is-danger", title: "Enter your password"%>
   <%= error_tag f, :password_hash %>
 </div>
   <div>
-    <%= submit "Sign in", class: "button is-fullwidth is-link" %>
+    <%= submit "Sign in", class: "button is-fullwidth is-link is-rounded" %>
   </div>
+  
 <% end %>
       </div>
     </div>
   </div>
-</section>

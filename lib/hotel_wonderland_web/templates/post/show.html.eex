@@ -1,0 +1,16 @@
+<h1>Read post</h1>
+
+<ul>
+
+  <li>
+    <%= @post.headline %>
+  </li>
+
+  <li>
+    <%= @post.content %>
+  </li>
+
+</ul>
+
+
+<span><%= link "Back", to: Routes.page_path(@conn, :index) %></span>

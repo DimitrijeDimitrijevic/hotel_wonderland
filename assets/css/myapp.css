@@ -17,3 +17,91 @@
     max-height: 50%;
     margin-bottom: 24px;
 }
+
+.admin-link {
+    position: relative;
+    bottom: 12px;
+    left: 8px;
+}
+
+.hotel-heading {
+    color: black;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.new-footer{
+    
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgb(218, 245, 245);
+    padding-bottom: 12px;
+    padding-top: 2px;
+}
+
+.footer-div{
+    margin-left: 12px;
+    text-align: center;
+    display: inline;
+}
+
+.notice-for-fields {
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: red;
+    margin-bottom: 2px;
+}
+
+.heading {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+}
+
+.news-container {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 2px;
+    padding: 4px;
+    width: 248px;
+    height: auto;
+}
+
+.news-heading {
+    color: rgb(56, 56, 56);
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+.news-content {
+    font-size: 14px;
+    padding: 8px;
+    color: rgb(0, 0, 0);
+    text-align: justify;
+    letter-spacing: 2px;
+}
+
+.hotel-subheading {
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.date {
+    display: inline;
+    margin-left: 24px;
+    position: static;
+}

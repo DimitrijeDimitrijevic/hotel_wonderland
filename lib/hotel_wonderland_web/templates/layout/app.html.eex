@@ -47,9 +47,7 @@
 
             <% else %>
 
-            <%= link to: Routes.admin_page_path(@conn, :index), class: "navbar-item" do %>
-            Sign in as admin <i class="fas fa-user-shield"></i>
-            <%end%>
+          
 
             <%= link to: Routes.room_path(@conn, :index), class: "navbar-item" do %>
             Check free rooms <i class="fas fa-door-open"></i>
@@ -79,12 +77,18 @@
     <%= render @view_module, @view_template, assigns %>
 
   </main>
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p class="has-text-black">
-        &copy; Hotel Wonderland by Dimitrije Dimitrijevi<a href="/admin" class="has-text-black">c</a>
+  <footer class="new-footer">
+    <div class="footer-div">
+       <%= link to: Routes.admin_page_path(@conn, :index) do %>
+        Sign in as admin <i class="fas fa-user-shield"></i>
+       <%end%> 
+       <a href="/contact" style="margin-left: 12px;"> Contact support</a> 
+      <p class="has-text-centered">
+        &copy; Hotel Wonderland by Dimitrije Dimitrijević
       </p>
     </div>
+     
+       
   </footer>
   <script>
     (function () {

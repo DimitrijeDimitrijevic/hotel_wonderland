@@ -33,9 +33,9 @@
 <label class="label has-text-white"> Show Reservations </label>
 
         <%= link "Show all reservations", to: Routes.admin_booking_path(@conn, :index) %>
-       
-   
+
     </div>
+        <%= link "List news", to: Routes.admin_post_path(@conn, :index)%>
 </div>
 
 

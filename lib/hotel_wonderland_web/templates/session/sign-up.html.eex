@@ -1,5 +1,4 @@
-
-
+<div class="container has-text-centered">
 <%= form_for @changeset, Routes.session_path(@conn, :create_user) , fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
@@ -7,44 +6,40 @@
     </div>
   <% end %>
 <div class="columns">
-<div class="column is-one-third">
-</div>
-
-  <div class="column is-one-third">
-<h2 class="title">Sign up to our reservation app</h2>
+<div class="column is-4 is-offset-4">
+<h1 class="heading"> Sign up to our reservation app </h1>
+<h2 class="notice-for-fields"> Please fill all fields </h2>
     <div class="field">
       <%= label f, :name_and_surname, class: "label"%>
-      <%= text_input f, :full_name, placeholder: "Please enter your full name", class: "input", title: "Please enter name and surname" %>
+      <%= text_input f, :full_name, placeholder: "Please enter your full name", class: "input is-rounded is-danger", title: "Please enter name and surname" %>
       <%= error_tag f, :full_name%>
     </div>
 
     <div class="field">
       <%= label f, :email, class: "label" %>
-      <%= email_input f, :email, placeholder: "email@example.com", class: "input", title: "Please enter email"%>
+      <%= email_input f, :email, placeholder: "email@example.com", class: "input is-rounded is-danger", title: "Please enter email"%>
       <%= error_tag f, :email %>
     </div>
 
     <div class="field">
       <%= label f, :phone_number, class: "label"%>
-      <%= telephone_input f, :phone_number, placeholder: "+38160123456678", pattern: "\+[0-9]{1,15}",  class: "input", title: "Please enter phone number"%>
+      <%= telephone_input f, :phone_number, placeholder: "+38160123456678", pattern: "\+[0-9]{1,15}",  class: "input is-rounded is-danger", title: "Please enter phone number"%>
       <%= error_tag f, :phone_number %>
     </div>
 
     <div class="field">
       <%= label f, :password, class: "label" %>
-      <%= password_input f, :password_hash, placeholder: "Enter your password", class: "input", title: "Please enter password" %>
+      <%= password_input f, :password_hash, placeholder: "Enter your password", class: "input is-rounded is-danger", title: "Please enter password" %>
       <%= error_tag f, :password_hash %>
     </div>
 
     <div>
-      <%= submit "Sign up", class: "button is-link is-fullwidth" %>
-       
-      
+      <%= submit "Sign up", class: "button is-link is-fullwidth is-rounded" %>
     </div>
-  <div class="column is-one-third">
-  </div>
+</div>
+
 
    </div> 
-
+</div>
 
 <% end %>

@@ -1,6 +1,6 @@
 <section class="section"> 
 <div class="cointainer has-text-centered">
-<h1 class="title">Reservation Form </h1>
+<h1 class="heading">Reservation Form </h1>
 <div class="column is-4 is-offset-4">
 <div class="box">
 <%= form_for @changeset, @action, fn f -> %>
@@ -15,34 +15,34 @@
   <% min_date_to_reservation = today_date |> Date.add(1) |> Date.to_iso8601()%>
 <div class="field">
   <%= label f, :guest_full_name, class: "label has-text-black"%>
-  <%= text_input f, :guest_full_name, placeholder: "John Smith", class: "input is-rounded" %>
+  <%= text_input f, :guest_full_name, placeholder: "John Smith", class: "input is-rounded is-danger", title: "Please enter guest full name" %>
   <%= error_tag f, :guest_full_name %>
 </div>
 
 <div class="field">
   <%= label f, :check_in, class: "label has-text-black"%>
-  <%= date_input f, :check_in, min: "#{min_date_from_reservation}", value: "#{min_date_from_reservation}", class: "input is-rounded"  %>
+  <%= date_input f, :check_in, min: "#{min_date_from_reservation}", value: "#{min_date_from_reservation}", class: "input is-rounded is-danger", title: "Choose check-in date"  %>
   <%= error_tag f, :check_in%>
 </div>
 
 <div class="field">
   <%= label f, :check_out, class: "label has-text-black" %>
-  <%= date_input f, :check_out, min: "#{min_date_to_reservation}", value: "#{min_date_to_reservation}", class: "input is-rounded" %>
+  <%= date_input f, :check_out, min: "#{min_date_to_reservation}", value: "#{min_date_to_reservation}", class: "input is-rounded is-danger", title: "Choose check-out date" %>
   <%= error_tag f, :check_out %>
 </div>
   <%= label f, :phone, class: "label has-text-black"%>
-  <%= text_input f, :phone, placeholder: "+3816060000", class: "input is-rounded", pattern: "\+[0-9]{1,15}" %>
+  <%= text_input f, :phone, placeholder: "+3816060000", class: "input is-rounded is-danger", pattern: "\+[0-9]{1,15}", title: "Please enter guest phone number" %>
   <%= error_tag f, :phone %>
 <div class="field">
   <%= label f, :special_requests, class: "label has-text-black"%>
-  <%= textarea f, :special_requests, placeholder: "Please provide if you have some special request, e.g Smoking Room", class: "textarea is-small" %>
+  <%= textarea f, :special_requests, placeholder: "Please provide if you have some special request, e.g Smoking Room", class: "textarea is-small is-success has-fixed-size", title: "Please enter your special request" %>
   <%= error_tag f, :special_requests %>
 </div>
   <%= hidden_input f, :room_id, value:  @room_id %>
   <%= hidden_input f, :user_id, value:  @conn.assigns.current_user.id %>
   
   <div>
-    <%= submit "Book", class: "button is-success" %>
+    <%= submit "Book", class: "button is-success is-rounded" %>
   </div>
 
 <% end %>

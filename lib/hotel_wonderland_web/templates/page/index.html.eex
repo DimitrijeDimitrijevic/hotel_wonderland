@@ -1,30 +1,16 @@
 <section class="container">
-  <h1 class="title has-text-centered"><%= gettext "Welcome to %{name}", name: "Hotel Wonderland" %></h1>
-
-    <div class="columns">
-      <div class="column">
-        <figure class="image is-128x128">
-          <img class="is-rounded" src="/images/comfort-room.jpg">
-          <figcaption class="has-text-black has-text-centered"> Room </figcaption>
-        </figure>
-      </div>
-        <div class="column">
-        <figure class="image is-128x128">
-          <img class="is-rounded" src="/images/pic1.jpg">
-          <figcaption class="has-text-black has-text-centered">Restaurant</figcaption>
-        </figure>
-      </div>
-      <div class="column">
-        <figure class="image is-128x128">
-          <img class="is-rounded" src="/images/pic2.jpg">
-          <figcaption class="has-text-black has-text-centered">Lights</figcaption>
-        </figure>
-      </div>
-      <div class="column">
-        <figure class="image is-128x128">
-          <img class="is-rounded" src="/images/hallway.jpg">
-          <figcaption class="has-text-black has-text-centered">Hallway</figcaption>
-        </figure>
-      </div>
-    </div>
+  <h1 class="hotel-heading"><%= gettext "Welcome to %{name}", name: "Hotel Wonderland" %></h1>
+  <h2 class="hotel-subheading">Hotel News</h2>
+  <%= case length @news do %>
+    <% 0 -> %> 
+  <h1>TO DO IF NO NEWS</h1>
+    <%= _ -> %> 
+      <%= for post <- @news do %>
+      <div class="news-container">
+        <h1 class="news-heading"><%= post.headline %></h1>
+        <%= link "Read news", to: Routes.post_path(@conn, :show, post)%>
+        <div class="date"><%= Date.to_iso8601(post.inserted_at)%> </div>
+       </div>
+      <%end%>
+    <%end%>
 </section>

@@ -39,6 +39,12 @@ defmodule HotelWonderlandWeb.Router do
 
     # Sign out
     post "/sign-out", SessionController, :sign_out
+
+    #contact
+    get "/contact", PageController, :contact
+
+    resources "/posts", PostController, only: [:index, :show]
+
   end
 
   scope "/", HotelWonderlandWeb do
@@ -49,6 +55,7 @@ defmodule HotelWonderlandWeb.Router do
     resources "/profile", UserController, only: [:show, :edit, :update], singleton: true do
       resources "/reservations", BookingController
     end
+    
   end
 
   scope "/admin", HotelWonderlandWeb.Admin do
@@ -59,8 +66,10 @@ defmodule HotelWonderlandWeb.Router do
     resources "/users", AdminUserController
     resources "/rooms", AdminRoomController
     resources "/reservations", AdminBookingController
+    resources "/posts", AdminPostController
     get "/rooms-all", AdminRoomController, :index_all
     get "/reservations-by-date", AdminBookingController, :search
+   
   end
 
   # Other scopes may use custom stacks.
