@@ -28,6 +28,11 @@
 
 
     <div class="navbar-menu" id="navMenu">
+     <div class="navbar-start">
+      <%= link  to: Routes.page_path(@conn, :index), class: "navbar-item" do %>
+        News feed <i class="fas fa-newspaper"></i>
+      <%= end %>
+     </div> 
       <div class="navbar-end">
 
             <%= if signed_in?(@conn) do %>

@@ -4,7 +4,7 @@ defmodule HotelWonderland.Repo.Migrations.CreatePosts do
   def change do
     create table(:posts) do
       add :headline, :string
-      add :content, :string
+      add :content, :text
 
       timestamps()
     end
