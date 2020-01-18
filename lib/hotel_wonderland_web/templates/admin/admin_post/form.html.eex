@@ -5,15 +5,24 @@
     </div>
   <% end %>
 
-  <%= label f, :headline %>
-  <%= text_input f, :headline %>
+<div class= "field">
+  <%= label f, :headline, class: "label" %>
+  <div class= "control">
+  <%= text_input f, :headline, class: "input" %>
+  </div>
   <%= error_tag f, :headline %>
+</div>
 
-  <%= label f, :content %>
-  <%= text_input f, :content %>
+
+<div class="field">
+  <%= label f, :content, class: "label" %>
+  <div class= "control">
+  <%= textarea f, :content, class: "textarea", rows: "4" %>
+  </div>
   <%= error_tag f, :content %>
+</div>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Save", class: "button is-primary is-fullwidth" %>
   </div>
 <% end %>

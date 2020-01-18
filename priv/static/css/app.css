@@ -37,13 +37,11 @@
 
 
 .new-footer{
-    
-    position: fixed;
+    position: absolute;
     bottom: 0px;
+    margin-top: 24px;
     width: 100%;
     background-color: rgb(218, 245, 245);
-    padding-bottom: 12px;
-    padding-top: 2px;
 }
 
 .footer-div{

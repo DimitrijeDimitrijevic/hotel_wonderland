@@ -1,24 +1,23 @@
-<section class="container">
+<div class="container">
   <h1 class="hotel-heading"><%= gettext "Welcome to %{name}", name: "Hotel Wonderland" %></h1>
   <h2 class="hotel-subheading">News feed</h2>
-  
   <div class="columns is-multiline">
     <%= for post <- @news do %>
       <div class="column is-one-third">
         <article class="message">
           <div class="message-header">
             <p><%= link post.headline, to: Routes.post_path(@conn, :show, post), class: "news-heading" %></p>
+            <span class="tag is-primary"><%= Date.to_iso8601(post.inserted_at)%></span>
           </div>
           <div class="message-body">
-          <%= post.content%>
+            <%= post.content%>
           </div>
-          
-          <span class="tag is-primary"><%= Date.to_iso8601(post.inserted_at)%></span>
         </article>
-      </div>
+      </div>      
     <%end%>
   </div>
-</section>
+</div>
+  
 
 
 

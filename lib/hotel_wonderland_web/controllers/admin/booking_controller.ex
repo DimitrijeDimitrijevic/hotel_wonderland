@@ -70,8 +70,16 @@ defmodule HotelWonderlandWeb.Admin.AdminBookingController do
   end
 
   def search(conn, %{"date" => date}) do 
-    IO.inspect(date)
-    reservations_by_date = Accounts.get_reservations_by_date(date, :preload)
-    render(conn, "search-by-date.html", reservations: reservations_by_date, date: date)
+    today_date = Date.utc_today() |> Date.to_iso8601()
+    case date do
+      "" -> 
+        date = today_date
+        reservations_by_date = Accounts.get_reservations_by_date(date, :preload)
+        render(conn, "search-by-date.html", reservations: reservations_by_date, date: date)
+  
+      _ ->
+        reservations_by_date = Accounts.get_reservations_by_date(date, :preload)
+        render(conn, "search-by-date.html", reservations: reservations_by_date, date: date) 
+      end 
   end
 end

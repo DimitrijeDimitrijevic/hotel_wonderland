@@ -1,26 +1,28 @@
 <h1>Listing Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Headline</th>
-      <th>Content</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+ <section class="container">
+    <h2 class="hotel-subheading">News feed</h2>
+      <div class="columns is-multiline">
 <%= for post <- @posts do %>
-    <tr>
-      <td><%= post.headline %></td>
-      <td>
-        <span><%= link "Show", to: Routes.admin_post_path(@conn, :show, post) %></span>
-        <span><%= link "Edit", to: Routes.admin_post_path(@conn, :edit, post) %></span>
-        <span><%= link "Delete", to: Routes.admin_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure to delete the news?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
 
-<span><%= link "New Post", to: Routes.admin_post_path(@conn, :new) %></span>
+      <div class="column is-one-third">
+        <article class="message">
+          <div class="message-header">
+            <p><%= post.headline %></p>
+          </div>
+          <div class="message-body">
+          <%= post.content%>
+          </div>
+           <span class="tag is-primary"><%= Date.to_iso8601(post.inserted_at)%></span>
+           <span><%= link "Show", to: Routes.admin_post_path(@conn, :show, post) %></span>
+           <span><%= link "Edit", to: Routes.admin_post_path(@conn, :edit, post) %></span>
+           <span><%= link "Delete", to: Routes.admin_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure to delete the news?"] %></span>
+        </article>
+      </div>
+  
+<% end %>
+</div>
+</section>
+
+<hr>
+
+<span><%= link "New Post", to: Routes.admin_post_path(@conn, :new), class: "button" %></span>

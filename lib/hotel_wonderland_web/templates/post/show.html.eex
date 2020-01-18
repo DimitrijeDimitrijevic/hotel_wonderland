@@ -1,16 +1,13 @@
-<h1>Read post</h1>
-
-<ul>
-
-  <li>
-    <%= @post.headline %>
-  </li>
-
-  <li>
-    <%= @post.content %>
-  </li>
-
-</ul>
+<article class="message">
+  <div class="message-header">
+    <p><%= @post.headline %></p>
+  </div>
+  <div class="message-body" >
+      <%= @post.content %>
+  </div>
+  <%= link "Back", to: Routes.page_path(@conn, :index), class: "button is-primary" %>
+</article>
 
 
-<span><%= link "Back", to: Routes.page_path(@conn, :index) %></span>
+
+

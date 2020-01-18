@@ -1,18 +1,11 @@
-<h1>Show Post</h1>
+<article class="message">
+  <div class="message-header">
+    <p><%= @post.headline %></p>
+  </div>
+  <div class="message-body" >
+      <%= @post.content %>
+  </div>
+  <%= link "Back", to: Routes.admin_page_path(@conn, :index)%>
+  <%= link "Edit", to: Routes.admin_post_path(@conn, :edit, @post), style: "margin-left: 8px;" %>
+</article>
 
-<ul>
-
-  <li>
-    <strong>Headline:</strong>
-    <%= @post.headline %>
-  </li>
-
-  <li>
-    <strong>Content:</strong>
-    <%= @post.content %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.admin_post_path(@conn, :edit, @post) %></span>
-<span><%= link "Back", to: Routes.admin_post_path(@conn, :index) %></span>

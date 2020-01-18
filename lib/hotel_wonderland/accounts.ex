@@ -246,6 +246,9 @@ defmodule HotelWonderland.Accounts do
   """
   def list_reservations(), do: Repo.all(Booking) 
   def list_reservations(:preload), do: Repo.all(Booking) |> Repo.preload([:room, :user])
+  
+  #search query
+
   def get_reservations_by_date(date, :preload) do
     query = from b in Booking, where: b.check_in == ^date
     Repo.all(query) |> Repo.preload([:room, :user])

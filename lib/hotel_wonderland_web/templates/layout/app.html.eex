@@ -12,11 +12,11 @@
 
 <body>
 
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
 
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
-        <img src="/images/hw-icon.png" class="is-rounded" alt="Hotel Wonderland">
+        <img alt="Hotel Wonderland">
       </a>
 
       <a role="button" class="navbar-burger burger" data-target="navMenu">
@@ -82,8 +82,9 @@
     <%= render @view_module, @view_template, assigns %>
 
   </main>
-  <footer class="new-footer">
-    <div class="footer-div">
+ 
+   <footer class="footer">
+    <div class="content has-text-centered">
        <%= link to: Routes.admin_page_path(@conn, :index) do %>
         Sign in as admin <i class="fas fa-user-shield"></i>
        <%end%> 
@@ -92,10 +93,9 @@
         &copy; Hotel Wonderland by Dimitrije Dimitrijević
       </p>
     </div>
-     
-       
   </footer>
-  <script>
+</body>
+<script>
     (function () {
       var burger = document.querySelector('.burger');
       var nav = document.querySelector('#' + burger.dataset.target);
@@ -107,6 +107,4 @@
     })();
   </script>
   <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-</body>
-
 </html>

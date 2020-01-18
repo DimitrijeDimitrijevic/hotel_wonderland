@@ -2,7 +2,7 @@
 
     <div class="column">
 
-    <label class="label has-text-white"> Users in App </label>
+    <label class="label has-text-black"> Users in App </label>
   
     <%= link to: Routes.admin_user_path(@conn, :index) do %>
     <i class="fas fa-address-book"></i> Show All users
@@ -16,7 +16,7 @@
 
 <div class="column">
 
-<label class="label has-text-white"> Rooms in Hotel </label>
+<label class="label has-text-black"> Rooms in Hotel </label>
 
         <%= link "Show available rooms in hotel", to: Routes.admin_room_path(@conn, :index) %>
             <br>    
@@ -30,12 +30,15 @@
 
     
     <div class="column">
-<label class="label has-text-white"> Show Reservations </label>
-
+<label class="label has-text-black"> Show Reservations </label>
         <%= link "Show all reservations", to: Routes.admin_booking_path(@conn, :index) %>
-
     </div>
+
+    <div class="column">
+    <label class="label has-text-black"> Hotel News feed </label>
         <%= link "List news", to: Routes.admin_post_path(@conn, :index)%>
+    </div>
+
 </div>
 
 
