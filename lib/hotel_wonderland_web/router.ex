@@ -45,6 +45,9 @@ defmodule HotelWonderlandWeb.Router do
 
     resources "/posts", PostController, only: [:index, :show]
 
+    resources "/tickets", TicketsController
+
+
   end
 
   scope "/", HotelWonderlandWeb do

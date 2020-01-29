@@ -1,0 +1,32 @@
+<h1>Listing Tickets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Message subject</th>
+      <th>Message text</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for tickets <- @tickets do %>
+    <tr>
+      <td><%= tickets.name %></td>
+      <td><%= tickets.phone %></td>
+      <td><%= tickets.message_subject %></td>
+      <td><%= tickets.message_text %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.tickets_path(@conn, :show, tickets) %></span>
+        <span><%= link "Edit", to: Routes.tickets_path(@conn, :edit, tickets) %></span>
+        <span><%= link "Delete", to: Routes.tickets_path(@conn, :delete, tickets), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Tickets", to: Routes.tickets_path(@conn, :new) %></span>

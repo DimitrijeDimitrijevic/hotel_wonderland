@@ -1,0 +1,28 @@
+<h1>Show Tickets</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @tickets.name %>
+  </li>
+
+  <li>
+    <strong>Phone:</strong>
+    <%= @tickets.phone %>
+  </li>
+
+  <li>
+    <strong>Message subject:</strong>
+    <%= @tickets.message_subject %>
+  </li>
+
+  <li>
+    <strong>Message text:</strong>
+    <%= @tickets.message_text %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.tickets_path(@conn, :edit, @tickets) %></span>
+<span><%= link "Back", to: Routes.tickets_path(@conn, :index) %></span>
