@@ -44,8 +44,9 @@ defmodule HotelWonderland.Accounts do
   def get_user(id), do: Repo.get(User, id)
   def get_user(id, :preload), do: Repo.get(User, id) |> Repo.preload(:reservations)
   def get_by_email(nil), do: nil
-  def get_by_email(email), do: User |> Repo.get_by(email: email)
-  
+  def get_by_email(email) do
+	 User |> Repo.get_by(email: email)
+  end
 
   def get_admin_id do 
     query = from u in User, where: u.full_name == "admin", select: u.id
